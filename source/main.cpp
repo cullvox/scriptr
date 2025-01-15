@@ -8,9 +8,10 @@
 // - Introduction, links and more at the top of imgui.cpp
 #define SDL_MAIN_HANDLED
 
-#include "imgui.h"
-#include "imgui_impl_sdl2.h"
-#include "imgui_impl_opengl3.h"
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_sdl2.h"
+#include "imgui/imgui_impl_opengl3.h"
+#include "imgui/imgui_stdlib.h"
 #include <stdio.h>
 #include <SDL.h>
 #if defined(IMGUI_IMPL_OPENGL_ES2)
@@ -24,7 +25,8 @@
 #include "../libs/emscripten/emscripten_mainloop_stub.h"
 #endif
 
-#include "imnodes.h"
+#include "imgui/imnodes.h"
+#include "TextEditor.h"
 
 // Main code
 int main(int, char**)
@@ -111,8 +113,8 @@ int main(int, char**)
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
     // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
-    //ImGui::StyleColorsLight();
+    //ImGui::StyleColorsDark();
+    ImGui::StyleColorsLight();
 
     // Setup Platform/Renderer backends
     ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
@@ -130,8 +132,12 @@ int main(int, char**)
     // - Read 'docs/FONTS.md' for more instructions and details.
     // - Remember that in C/C++ if you want to include a backslash \ in a string literal you need to write a double backslash \\ !
     // - Our Emscripten build process allows embedding fonts to be accessible at runtime from the "fonts/" folder. See Makefile.emscripten for details.
-    //io.Fonts->AddFontDefault();
-    //io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\segoeui.ttf", 18.0f);
+    // io.Fonts->AddFontDefault();
+    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/InterVariable.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    IM_ASSERT(font != nullptr);
+
+    io.Fonts->Build();
+    
     //io.Fonts->AddFontFromFileTTF("../../misc/fonts/DroidSans.ttf", 16.0f);
     //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Roboto-Medium.ttf", 16.0f);
     //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
@@ -142,10 +148,14 @@ int main(int, char**)
     bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-    char buf[1024] = {};
-    char buf2[128] = {};
 
+    TextEditor editor;
+    editor.SetShowWhitespaces(false);
+    editor.SetColorizerEnable(true);
+    
 
+    std::string node_1_name;
+    std::string node_2_name;
 
     // Main loop
     bool done = false;
@@ -182,6 +192,8 @@ int main(int, char**)
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
+
+        ImGui::PushFont(font);
 
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
         if (show_demo_window)
@@ -231,7 +243,7 @@ int main(int, char**)
 
         ImNodes::BeginNodeTitleBar();
         ImGui::SetNextItemWidth(node_width + 25.0f);
-        ImGui::InputText("", buf, sizeof(buf));
+        ImGui::InputText("", &node_1_name);
         ImNodes::EndNodeTitleBar();
 
 
@@ -253,24 +265,24 @@ int main(int, char**)
 
         ImNodes::BeginNodeTitleBar();
         ImGui::SetNextItemWidth(node_width + 25.0f);
-        ImGui::InputText("", buf2, sizeof(buf2));
+        ImGui::InputText("", &node_2_name);
         ImNodes::EndNodeTitleBar();
 
 
-        ImNodes::BeginInputAttribute(4);
+        ImNodes::BeginInputAttribute(2);
         ImGui::Text("In");
         ImNodes::EndInputAttribute();
 
         ImGui::SameLine();
 
-        ImNodes::BeginOutputAttribute(6);
+        ImNodes::BeginOutputAttribute(3);
         ImGui::Indent(node_width - label_width);
         ImGui::TextUnformatted("Out");
         ImNodes::EndOutputAttribute();
 
         ImNodes::EndNode();
 
-        ImNodes::Link(8, 1, 4);
+        ImNodes::Link(8, 1, 2);
 
         ImNodes::MiniMap(0.2f, ImNodesMiniMapLocation_BottomRight);
         ImNodes::EndNodeEditor();
@@ -278,8 +290,12 @@ int main(int, char**)
 
         ImGui::Begin("Script");
 
-        ImGui::InputTextMultiline("##Script", buf, sizeof(buf), ImGui::GetContentRegionAvail());
+        ImGui::InputTextMultiline("##Script", &node_2_name, ImGui::GetContentRegionAvail(), ImGuiInputTextFlags_AllowTabInput);
         ImGui::End();
+
+        ImGui::PopFont();
+
+        editor.Render("Script 2");
 
         // Rendering
         ImGui::Render();

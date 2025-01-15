@@ -3,13 +3,15 @@
 #include <vector>
 #include <memory>
 
-#include "project.h"
+#include "project.hpp"
 
-class Application {
+class Application 
+{
 public:
     static void Initialize();
     static void Shutdown();
+    static void DrawProject();
 
 private:
-    static std::vector<std::unique_ptr<Project>> projects;
+    static Project project;
 };
