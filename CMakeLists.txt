@@ -52,9 +52,10 @@ add_executable(Scriptr
     "source/glad/src/gl.c"
 
     "source/TextEditor.cpp"
+    "source/node.cpp"
     "source/main.cpp")
 
-target_link_libraries(Scriptr PUBLIC SDL2::SDL2 freetype)
+target_link_libraries(Scriptr PUBLIC SDL2::SDL2 freetype Poco::Foundation)
 target_include_directories(Scriptr PRIVATE "source/glad/include" "source/imgui/")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

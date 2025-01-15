@@ -714,7 +714,7 @@ void TextEditor::HandleKeyboardInputs()
 
 		if (!IsReadOnly() && ctrl && !shift && !alt && ImGui::IsKeyPressed(ImGuiKey_Z))
 			Undo();
-		else if (!IsReadOnly() && !ctrl && !shift && alt && ImGui::IsKeyPressed(ImGuiKey_Backspace))
+		else if (!IsReadOnly() && !ctrl && alt && ImGui::IsKeyPressed(ImGuiKey_Backspace))
 			Undo();
 		else if (!IsReadOnly() && ctrl && !shift && !alt && ImGui::IsKeyPressed(ImGuiKey_Y))
 			Redo();
@@ -1128,7 +1128,7 @@ void TextEditor::Render(const char* aTitle, const ImVec2& aSize, bool aBorder)
 	ImGui::PushStyleColor(ImGuiCol_ChildBg, ImGui::ColorConvertU32ToFloat4(mPalette[(int)PaletteIndex::Background]));
 	ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(0.0f, 0.0f));
 	if (!mIgnoreImGuiChild)
-		ImGui::BeginChild(aTitle, aSize, aBorder, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar | ImGuiWindowFlags_NoMove);
+		ImGui::Begin(aTitle, NULL);
 
 	if (mHandleKeyboardInputs)
 	{
@@ -1146,7 +1146,7 @@ void TextEditor::Render(const char* aTitle, const ImVec2& aSize, bool aBorder)
 		ImGui::PopAllowKeyboardFocus();
 
 	if (!mIgnoreImGuiChild)
-		ImGui::EndChild();
+		ImGui::End();
 
 	ImGui::PopStyleVar();
 	ImGui::PopStyleColor();
