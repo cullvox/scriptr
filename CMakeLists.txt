@@ -55,6 +55,7 @@ add_executable(Scriptr
     "source/node.cpp"
     "source/main.cpp")
 
+target_compile_features(Scriptr PUBLIC cxx_std_17)
 target_link_libraries(Scriptr PUBLIC SDL2::SDL2 freetype Poco::Foundation)
 target_include_directories(Scriptr PRIVATE "source/glad/include" "source/imgui/")
 

@@ -29,12 +29,12 @@
             "name": "(Windows) Launch",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/Scriptr.exe",
+            "program": "${workspaceFolder}/build/bin/Scriptr.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "cwd": "${workspaceFolder}",
             "environment": [],
-            "console": "externalTerminal"
+            "console": "internalConsole"
         }
 
     ]

@@ -163,7 +163,6 @@ int main(int, char**)
 
     editor.SetPalette(palette);
 
-
     std::string node_1_name;
     std::string node_2_name;
 
@@ -228,7 +227,7 @@ int main(int, char**)
         ImNodes::BeginNodeEditor();
 
         const float node_width = 60.0f;
-        
+
         ImNodes::BeginNode(0);
 
         ImNodes::BeginNodeTitleBar();
