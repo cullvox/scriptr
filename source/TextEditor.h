@@ -36,7 +36,15 @@ public:
 		CurrentLineFill,
 		CurrentLineFillInactive,
 		CurrentLineEdge,
+		Bold,
 		Max
+	};
+
+	enum class RichText {
+		Bold = 0x0001, 
+		Italic = 0x0002,
+		Underline = 0x0004,
+		Color = 0x0008,
 	};
 
 	enum class SelectionMode
@@ -129,6 +137,7 @@ public:
 	typedef std::unordered_map<std::string, Identifier> Identifiers;
 	typedef std::unordered_set<std::string> Keywords;
 	typedef std::map<int, std::string> ErrorMarkers;
+	typedef std::vector<int> SceneMarkers; 
 	typedef std::unordered_set<int> Breakpoints;
 	typedef std::array<ImU32, (unsigned)PaletteIndex::Max> Palette;
 	typedef uint8_t Char;
@@ -140,9 +149,11 @@ public:
 		bool mComment : 1;
 		bool mMultiLineComment : 1;
 		bool mPreprocessor : 1;
+		bool mSceneMarker : 1;
+		bool mBold : 1;
 
-		Glyph(Char aChar, PaletteIndex aColorIndex) : mChar(aChar), mColorIndex(aColorIndex),
-			mComment(false), mMultiLineComment(false), mPreprocessor(false) {}
+		Glyph(Char aChar, PaletteIndex aColorIndex) : mChar(aChar), mColorIndex(aColorIndex), 
+			mComment(false), mMultiLineComment(false), mPreprocessor(false), mSceneMarker(false), mBold(false) {}
 	};
 
 	typedef std::vector<Glyph> Line;
@@ -180,6 +191,7 @@ public:
 		static const LanguageDefinition& SQL();
 		static const LanguageDefinition& AngelScript();
 		static const LanguageDefinition& Lua();
+		static const LanguageDefinition& Screenplay();
 	};
 
 	TextEditor();
@@ -214,6 +226,11 @@ public:
 
 	bool IsColorizerEnabled() const { return mColorizerEnabled; }
 	void SetColorizerEnable(bool aValue);
+
+	// Some richer text
+	void SetBoldFont(ImFont* font);
+	void BoldSelection();
+	void UnderlineText();
 
 	Coordinates GetCursorPosition() const { return GetActualCursorCoordinates(); }
 	void SetCursorPosition(const Coordinates& aPosition);
@@ -374,12 +391,14 @@ private:
 
 	Palette mPaletteBase;
 	Palette mPalette;
+	ImFont* mBoldFont;
 	LanguageDefinition mLanguageDefinition;
 	RegexList mRegexList;
 
 	bool mCheckComments;
 	Breakpoints mBreakpoints;
 	ErrorMarkers mErrorMarkers;
+	SceneMarkers mSceneMarkers;
 	ImVec2 mCharAdvance;
 	Coordinates mInteractiveStart, mInteractiveEnd;
 	std::string mLineBuffer;

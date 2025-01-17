@@ -138,16 +138,11 @@ int main(int, char**)
     // - Remember that in C/C++ if you want to include a backslash \ in a string literal you need to write a double backslash \\ !
     // - Our Emscripten build process allows embedding fonts to be accessible at runtime from the "fonts/" folder. See Makefile.emscripten for details.
     // io.Fonts->AddFontDefault();
-    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/InterVariable.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
-    IM_ASSERT(font != nullptr);
+    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/Inter-Regular.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/Inter-Black.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    IM_ASSERT(font != nullptr && fontBold != nullptr);
 
     io.Fonts->Build();
-    
-    //io.Fonts->AddFontFromFileTTF("../../misc/fonts/DroidSans.ttf", 16.0f);
-    //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Roboto-Medium.ttf", 16.0f);
-    //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
-    //ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
-    //IM_ASSERT(font != nullptr);
 
     // Our state
     bool show_demo_window = true;
@@ -156,7 +151,9 @@ int main(int, char**)
 
     TextEditor editor;
     editor.SetShowWhitespaces(false);
-    editor.SetColorizerEnable(false);
+    editor.SetColorizerEnable(true);
+    editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Screenplay());
+    editor.SetBoldFont(fontBold);
 
     TextEditor::Palette palette = editor.GetPalette();
     palette[(int)TextEditor::PaletteIndex::Default] = ImGui::ColorConvertFloat4ToU32(ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
