@@ -8,62 +8,21 @@
 #include <unordered_map>
 #include <map>
 #include <regex>
+#include <variant>
+
+#include <nlohmann/json.hpp>
+
 #include "imgui.h"
 
 class TextEditor
 {
 public:
-	enum class PaletteIndex
-	{
-		Default,
-		Keyword,
-		Number,
-		String,
-		CharLiteral,
-		Punctuation,
-		Preprocessor,
-		Identifier,
-		KnownIdentifier,
-		PreprocIdentifier,
-		Comment,
-		MultiLineComment,
-		Background,
-		Cursor,
-		Selection,
-		ErrorMarker,
-		Breakpoint,
-		LineNumber,
-		CurrentLineFill,
-		CurrentLineFillInactive,
-		CurrentLineEdge,
-		Bold,
-		Max
-	};
-
-	enum class RichText {
-		Bold = 0x0001, 
-		Italic = 0x0002,
-		Underline = 0x0004,
-		Color = 0x0008,
-	};
 
 	enum class SelectionMode
 	{
 		Normal,
 		Word,
 		Line
-	};
-
-	struct Breakpoint
-	{
-		int mLine;
-		bool mEnabled;
-		std::string mCondition;
-
-		Breakpoint()
-			: mLine(-1)
-			, mEnabled(false)
-		{}
 	};
 
 	// Represents a character coordinate from the user's point of view,
@@ -127,93 +86,20 @@ public:
 		}
 	};
 
-	struct Identifier
-	{
-		Coordinates mLocation;
-		std::string mDeclaration;
-	};
-
-	typedef std::string String;
-	typedef std::unordered_map<std::string, Identifier> Identifiers;
-	typedef std::unordered_set<std::string> Keywords;
-	typedef std::map<int, std::string> ErrorMarkers;
-	typedef std::vector<int> SceneMarkers; 
-	typedef std::unordered_set<int> Breakpoints;
-	typedef std::array<ImU32, (unsigned)PaletteIndex::Max> Palette;
-	typedef uint8_t Char;
-
-	struct Glyph
-	{
-		Char mChar;
-		PaletteIndex mColorIndex = PaletteIndex::Default;
-		bool mComment : 1;
-		bool mMultiLineComment : 1;
-		bool mPreprocessor : 1;
-		bool mSceneMarker : 1;
-		bool mBold : 1;
-
-		Glyph(Char aChar, PaletteIndex aColorIndex) : mChar(aChar), mColorIndex(aColorIndex), 
-			mComment(false), mMultiLineComment(false), mPreprocessor(false), mSceneMarker(false), mBold(false) {}
-	};
-
-	typedef std::vector<Glyph> Line;
-	typedef std::vector<Line> Lines;
-
-	struct LanguageDefinition
-	{
-		typedef std::pair<std::string, PaletteIndex> TokenRegexString;
-		typedef std::vector<TokenRegexString> TokenRegexStrings;
-		typedef bool(*TokenizeCallback)(const char * in_begin, const char * in_end, const char *& out_begin, const char *& out_end, PaletteIndex & paletteIndex);
-
-		std::string mName;
-		Keywords mKeywords;
-		Identifiers mIdentifiers;
-		Identifiers mPreprocIdentifiers;
-		std::string mCommentStart, mCommentEnd, mSingleLineComment;
-		char mPreprocChar;
-		bool mAutoIndentation;
-
-		TokenizeCallback mTokenize;
-
-		TokenRegexStrings mTokenRegexStrings;
-
-		bool mCaseSensitive;
-
-		LanguageDefinition()
-			: mPreprocChar('#'), mAutoIndentation(true), mTokenize(nullptr), mCaseSensitive(true)
-		{
-		}
-
-		static const LanguageDefinition& CPlusPlus();
-		static const LanguageDefinition& HLSL();
-		static const LanguageDefinition& GLSL();
-		static const LanguageDefinition& C();
-		static const LanguageDefinition& SQL();
-		static const LanguageDefinition& AngelScript();
-		static const LanguageDefinition& Lua();
-		static const LanguageDefinition& Screenplay();
-	};
-
 	TextEditor();
 	~TextEditor();
 
-	void SetLanguageDefinition(const LanguageDefinition& aLanguageDef);
-	const LanguageDefinition& GetLanguageDefinition() const { return mLanguageDefinition; }
-
-	const Palette& GetPalette() const { return mPaletteBase; }
-	void SetPalette(const Palette& aValue);
-
-	void SetErrorMarkers(const ErrorMarkers& aMarkers) { mErrorMarkers = aMarkers; }
-	void SetBreakpoints(const Breakpoints& aMarkers) { mBreakpoints = aMarkers; }
-
 	void Render(const char* aTitle, const ImVec2& aSize = ImVec2(), bool aBorder = false);
 	void SetText(const std::string& aText);
-	std::string GetText() const;
+	nlohmann::json GetText() const;
+	std::string GetTextUnformatted() const;
+	
 
 	void SetTextLines(const std::vector<std::string>& aLines);
 	std::vector<std::string> GetTextLines() const;
 
-	std::string GetSelectedText() const;
+	nlohmann::json GetSelectedText() const;
+	std::string GetSelectedTextUnformatted();
 	std::string GetCurrentLineText()const;
 
 	int GetTotalLines() const { return (int)mLines.size(); }
@@ -223,14 +109,14 @@ public:
 	bool IsReadOnly() const { return mReadOnly; }
 	bool IsTextChanged() const { return mTextChanged; }
 	bool IsCursorPositionChanged() const { return mCursorPositionChanged; }
+	void SetLineNumbersEnabled(bool )
 
-	bool IsColorizerEnabled() const { return mColorizerEnabled; }
-	void SetColorizerEnable(bool aValue);
-
-	// Some richer text
-	void SetBoldFont(ImFont* font);
-	void BoldSelection();
-	void UnderlineText();
+	void SetFonts(ImFont* normalFont=NULL, ImFont* boldFont=NULL, ImFont* italicFont=NULL, ImFont* boldItalicFont=NULL);
+	void SetBoldSelection(bool enabled);
+	void SetItalicSelection(bool enabled);
+	void SetUnderlineSelection(bool enabled);
+	void SetColorSection();
+	void SetHighlightSection();
 
 	Coordinates GetCursorPosition() const { return GetActualCursorCoordinates(); }
 	void SetCursorPosition(const Coordinates& aPosition);
@@ -279,12 +165,27 @@ public:
 	void Undo(int aSteps = 1);
 	void Redo(int aSteps = 1);
 
-	static const Palette& GetDarkPalette();
-	static const Palette& GetLightPalette();
-	static const Palette& GetRetroBluePalette();
-
 private:
-	typedef std::vector<std::pair<std::regex, PaletteIndex>> RegexList;
+
+	struct TextProperty;
+	struct TextBlock;
+
+	using Line = std::vector<TextBlock>;
+	using Lines = std::vector<Line>;
+	using TextPropertyValue = std::variant<std::string, int, float>;
+
+	struct TextProperty 
+	{
+		std::string name;
+		TextPropertyValue value;
+	};
+
+	struct TextBlock
+	{
+		std::string text;
+        std::unordered_set<TextProperty> properties;
+		std::vector<TextBlock> children;
+	};
 
 	struct EditorState
 	{
@@ -329,9 +230,7 @@ private:
 	typedef std::vector<UndoRecord> UndoBuffer;
 
 	void ProcessInputs();
-	void Colorize(int aFromLine = 0, int aCount = -1);
-	void ColorizeRange(int aFromLine = 0, int aToLine = 0);
-	void ColorizeInternal();
+	void BuildTextBlocks();
 	float TextDistanceToLineStart(const Coordinates& aFrom) const;
 	void EnsureCursorVisible();
 	int GetPageSize() const;
@@ -365,6 +264,11 @@ private:
 	void HandleMouseInputs();
 	void Render();
 
+	ImFont* mNormalFont;
+	ImFont* mBoldFont;
+	ImFont* mItalicFont;
+	ImFont* mItalicBoldFont;
+
 	float mLineSpacing;
 	Lines mLines;
 	EditorState mState;
@@ -382,23 +286,12 @@ private:
 	float mTextStart;                   // position (in pixels) where a code line starts relative to the left of the TextEditor.
 	int  mLeftMargin;
 	bool mCursorPositionChanged;
-	int mColorRangeMin, mColorRangeMax;
 	SelectionMode mSelectionMode;
 	bool mHandleKeyboardInputs;
 	bool mHandleMouseInputs;
 	bool mIgnoreImGuiChild;
 	bool mShowWhitespaces;
 
-	Palette mPaletteBase;
-	Palette mPalette;
-	ImFont* mBoldFont;
-	LanguageDefinition mLanguageDefinition;
-	RegexList mRegexList;
-
-	bool mCheckComments;
-	Breakpoints mBreakpoints;
-	ErrorMarkers mErrorMarkers;
-	SceneMarkers mSceneMarkers;
 	ImVec2 mCharAdvance;
 	Coordinates mInteractiveStart, mInteractiveEnd;
 	std::string mLineBuffer;

@@ -1,8 +1,9 @@
 #pragma once
 
-#include "imgui.h"
 #include <string>
+#include <vector>
 
+#include "imgui.h"
 
 typedef int RichTextModifierFlags;  
 enum ImRichTextModifierFlagBits {
@@ -14,17 +15,19 @@ enum ImRichTextModifierFlagBits {
 };
 
 
-namespace ImRichText {
+class RichTextEditor {
 
 
-
+private:
     struct Block {
         std::string text;
         ImRichTextModifierFlagBits modifiers;
         ImVec4 color;
         ImVec4 highlight;
-        std::vector<Block> children;
     };
 
+    typedef std::vector<Block> Line;
+    typedef std::vector<Line> Lines;
 
-}
+    Lines mLines;
+};
