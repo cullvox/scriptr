@@ -1,0 +1,23 @@
+{
+    "type": "doc",
+    "name": "Your Project Title",
+    
+    "scripts": [
+        {
+            "name": "Section A1",
+            "text": {
+                "text": "Some Text Here!",
+                "bold": true
+            }
+        }
+    ],
+
+    "nodeGraph": [
+        {
+
+        }
+    ]
+
+
+
+}

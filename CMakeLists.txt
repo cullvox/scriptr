@@ -53,7 +53,7 @@ add_executable(Scriptr
 
     "source/glad/src/gl.c"
 
-    "source/TextEditor.cpp"
+    "source/RichTextEditor.cpp"
     "source/node.cpp"
     "source/main.cpp")
 

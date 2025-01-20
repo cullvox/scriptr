@@ -6,7 +6,9 @@
 // - Getting Started      https://dearimgui.com/getting-started
 // - Documentation        https://dearimgui.com/docs (same as your local docs/ folder).
 // - Introduction, links and more at the top of imgui.cpp
+
 #include <cstddef>
+#include <nlohmann/json_fwd.hpp>
 #define SDL_MAIN_HANDLED
 
 #include "imgui/imgui.h"
@@ -27,9 +29,9 @@
 #endif
 
 #include "imgui/imnodes.h"
-#include "TextEditor.h"
 #include "node.hpp"
 #include "graph.h"
+#include "RichTextEditor.h"
 
 
 // Main code
@@ -140,7 +142,9 @@ int main(int, char**)
     // io.Fonts->AddFontDefault();
     ImFont* font = io.Fonts->AddFontFromFileTTF("resource/Inter-Regular.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
     ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/Inter-Black.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
-    IM_ASSERT(font != nullptr && fontBold != nullptr);
+    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/Inter-Italic.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/InterDisplay-BlackItalic.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    IM_ASSERT(font != nullptr && fontBold != nullptr && fontItalic != nullptr && fontItalicBold != nullptr);
 
     io.Fonts->Build();
 
@@ -149,21 +153,32 @@ int main(int, char**)
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-    TextEditor editor;
-    editor.SetShowWhitespaces(false);
-    editor.SetColorizerEnable(true);
-    editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Screenplay());
-    editor.SetBoldFont(fontBold);
-
-    TextEditor::Palette palette = editor.GetPalette();
-    palette[(int)TextEditor::PaletteIndex::Default] = ImGui::ColorConvertFloat4ToU32(ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
-
-    editor.SetPalette(palette);
-
     std::string node_1_name;
     std::string node_2_name;
 
     example::Graph<Node> graph;
+
+    auto json = nlohmann::json::parse(R"(
+        {
+            "text": "Some Text Here! ",
+            "bold": true,
+            "link": "https://github.com/cullvox",
+            "children": [
+                {
+                    "text": "Some more child text!",
+                    "bold": false,
+                    "italic": true
+                },
+                {
+                    "text": " should be bold!",
+                    "bold": false
+                }
+            ]
+        }
+        )");
+
+    RichTextEditor editor{font, fontBold, fontItalic, fontItalicBold};
+    editor.SetText(json);
 
     // Main loop
     bool done = false;
@@ -290,7 +305,12 @@ int main(int, char**)
 
         ImGui::End();
 
-        editor.Render("Script 2");
+        ImGui::Begin("Script");
+
+        editor.Render();
+
+        ImGui::End();
+
 
         // Rendering
         ImGui::Render();
