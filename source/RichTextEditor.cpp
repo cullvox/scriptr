@@ -1,14 +1,15 @@
-#include "RichTextEditor.h"
 #include "imgui.h"
 #include "imgui_internal.h"
+
 #include <algorithm>
+#include <cfloat>
+#include <cmath>
 #include <cstddef>
-#include <iostream>
-#include <nlohmann/json_fwd.hpp>
 #include <optional>
 #include <regex>
 #include <string>
 
+#include "RichTextEditor.h"
 
 RichTextEditor::RichTextEditor(ImFont* normalFont, ImFont* boldFont, ImFont* italicFont, ImFont* italicBoldFont)
     : mNormalFont(normalFont), mBoldFont(boldFont), mItalicFont(italicFont), mItalicBoldFont(italicBoldFont)
@@ -88,6 +89,10 @@ RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLi
             if (color) 
                 block.backgroundColor = color.value();
         }
+        else if (key == "size" && value.is_number_float())
+        {
+            block.fontSize = value.get<float>();
+        }
         else if (key != "children") 
         {
             // Parse any additional json values that could be more user-defined properties.
@@ -158,34 +163,99 @@ std::string RichTextEditor::GetTextUnformatted()
     return {};
 }
 
-void RichTextEditor::Render() {
+size_t RichTextEditor::UTF8CharLength(char c)
+{
+	if ((c & 0xFE) == 0xFC)
+		return 6;
+	if ((c & 0xFC) == 0xF8)
+		return 5;
+	if ((c & 0xF8) == 0xF0)
+		return 4;
+	else if ((c & 0xF0) == 0xE0)
+		return 3;
+	else if ((c & 0xE0) == 0xC0)
+		return 2;
+	return 1;
+}
+
+void RichTextEditor::SetCursorLocation(int line, int column)
+{
+    mCursorLine = line;
+    mCursorColumn = column;
+    mCursorTimeOffset = 1.0 - std::fmod(ImGui::GetTime(), 1.0);
+}
+
+void RichTextEditor::HandleKeyboardInput() {
+    ImGuiIO& io = ImGui::GetIO();
+	auto shift = io.KeyShift;
+	auto ctrl = io.ConfigMacOSXBehaviors ? io.KeySuper : io.KeyCtrl;
+	auto alt = io.ConfigMacOSXBehaviors ? io.KeyCtrl : io.KeyAlt;
+
+	if (ImGui::IsWindowFocused())
+	{
+		if (ImGui::IsWindowHovered())
+			ImGui::SetMouseCursor(ImGuiMouseCursor_TextInput);
+		//ImGui::CaptureKeyboardFromApp(true);
+
+		io.WantCaptureKeyboard = true;
+		io.WantTextInput = true;
+
+
+		if (!alt && ImGui::IsKeyPressed(ImGuiKey_LeftArrow))
+			SetCursorLocation(mCursorLine, mCursorColumn - 1);
+		if (!alt && ImGui::IsKeyPressed(ImGuiKey_RightArrow))
+            SetCursorLocation(mCursorLine, mCursorColumn + 1);
+			
+
+		//if (!IsReadOnly() && !io.InputQueueCharacters.empty())
+		//{
+		//	for (int i = 0; i < io.InputQueueCharacters.Size; i++)
+		//	{
+		//		auto c = io.InputQueueCharacters[i];
+		//		if (c != 0 && (c == '\n' || c >= 32))
+		//			EnterCharacter(c, shift);
+		//	}
+		//	io.InputQueueCharacters.resize(0);
+		//}
+	}
+}
+
+void RichTextEditor::Render() 
+{
+    HandleKeyboardInput();
 
     auto drawList = ImGui::GetWindowDrawList();
 
-    ImVec2 cursorScreenPos = ImGui::GetCursorScreenPos();
-
-
     // Draw the background for the editor.
+    auto cursorScreenPos = ImGui::GetCursorScreenPos();
     auto contentRegion = ImGui::GetContentRegionAvail();
     auto backgroundRect = ImRect(cursorScreenPos.x, cursorScreenPos.y, cursorScreenPos.x + contentRegion.x, cursorScreenPos.y + contentRegion.y);
 
     drawList->AddRectFilled(backgroundRect.Min, backgroundRect.Max, 0xFFe0e0e0);
 
-    for (auto& line : mLines) {
-
+    int currentLine = 0;
+    for (auto& line : mLines) 
+    {
 
         // Find the maximum font size used in this line.
         float maxFontSize = 0.0f;
-        for (auto& block : line) {
+        for (auto& block : line) 
+        {
             maxFontSize = std::max(maxFontSize, block.fontSize);
         }
 
-        for (auto& block : line) {
+        // Draw the text blocks.
+        int currentColumn = 0;
+        
+        auto cursorScreenCoordinates = cursorScreenPos;
+        auto cursorFontHeight = line.size() > 0 ? line.front().fontSize : mDefaultFontSize;
+        
+        for (auto& block : line) 
+        {
             const auto& additionalProperties = block.additionalProperties; 
 
             // Determine the font that we're going to use.
             ImFont* font = mNormalFont ? mNormalFont : ImGui::GetFont();
-            float fontSize = 18.0f;
 
             if (block.propertyFlags & RichTextPropertyFlags_Bold)
                 font = mBoldFont;
@@ -193,35 +263,64 @@ void RichTextEditor::Render() {
                 font = mItalicFont;
             if (block.propertyFlags & RichTextPropertyFlags_Bold && block.propertyFlags & RichTextPropertyFlags_Italic)
                 font = mItalicBoldFont;
-
-            auto itFontSize = additionalProperties.find("size"); 
-            if (itFontSize != additionalProperties.end())
-                fontSize = std::get<float>(itFontSize->second);
             
             // Calculate the text mathematics for this block.
-            auto lineFontSizeDelta = maxFontSize - fontSize;
-            auto cursorLocation = ImGui::GetCursorScreenPos();
-            auto textLocation = ImVec2(cursorLocation.x, cursorLocation.y + lineFontSizeDelta);
+            auto fontSizeDifference = maxFontSize - block.fontSize;
+            auto drawCursorLocation = ImGui::GetCursorScreenPos();
+            auto textLocation = ImVec2(drawCursorLocation.x, drawCursorLocation.y + fontSizeDifference);
+            auto textSize = font->CalcTextSizeA(block.fontSize, FLT_MAX, -1.0f, block.text.data());
+            auto textScreenRect = ImRect(drawCursorLocation.x, drawCursorLocation.y, drawCursorLocation.x + textSize.x, drawCursorLocation.y + textSize.y);
 
-            auto textSize = font->CalcTextSizeA(fontSize, FLT_MAX, -1.0f, block.text.data());
-            auto textScreenRect = ImRect(cursorLocation.x, cursorLocation.y, cursorLocation.x + textSize.x, cursorLocation.y + textSize.y);
-
-            // Draw the highlight/background rect.
             if ((block.backgroundColor & IM_COL32_A_MASK) != 0)
                 drawList->AddRectFilled(textScreenRect.Min, textScreenRect.Max, block.backgroundColor);
 
-            // Draw the rich text.
-            drawList->AddText(font, 18.0f, textLocation, block.foregroundColor, block.text.data());
+            drawList->AddText(font, block.fontSize, textLocation, block.foregroundColor, block.text.data());
+
+            if (block.propertyFlags & RichTextPropertyFlags_Underline)
+            {
+                auto underlineStart = ImVec2(textScreenRect.Min.x, textScreenRect.Max.y);
+                auto underlineEnd = ImVec2(textScreenRect.Max.x, textScreenRect.Max.y);
+                drawList->AddLine(underlineStart, underlineEnd, block.foregroundColor);
+            }
+
+            if (mCursorLine == currentLine && mCursorColumn > currentColumn)
+            {
+                for (int i = 0; i < block.text.size(); ) 
+                {
+                    if (currentColumn >= mCursorColumn)
+                        break;
+
+                    auto characterBytes = UTF8CharLength(block.text[i]);
+                    auto characterSize = font->CalcTextSizeA(block.fontSize, FLT_MAX, -1.0f, block.text.data() + i, block.text.data() + i + characterBytes);
+                    i += characterBytes;
+
+                    cursorScreenCoordinates.x += characterSize.x;
+                    cursorScreenCoordinates.y = drawCursorLocation.y;
+                    cursorFontHeight = block.fontSize;
+
+                    currentColumn++;
+                }
+            }
 
             // Set the cursors new position.
-            cursorLocation = ImVec2(textScreenRect.Max.x, cursorLocation.y);
-            ImGui::SetCursorScreenPos(cursorLocation);
+            drawCursorLocation = ImVec2(textScreenRect.Max.x, drawCursorLocation.y);
+            ImGui::SetCursorScreenPos(drawCursorLocation);
+        }
 
+
+        if (mCursorLine == currentLine) 
+        {
             // Draw the cursor every half second.
-            if (std::fmod(ImGui::GetTime(), 1) < 0.5f) {
-                drawList->AddLine(ImVec2(cursorScreenPos.x, cursorScreenPos.y + fontSize), ImVec2(cursorScreenPos.x, cursorScreenPos.y), 0xFFb6b6b6, 2.0f);
+            if (std::fmod(ImGui::GetTime() + mCursorTimeOffset, 1) < 0.5f)
+            {   
+                auto cursorLineDifference = maxFontSize - cursorFontHeight;
+                auto lineStart = ImVec2(cursorScreenCoordinates.x, cursorScreenCoordinates.y + cursorLineDifference);
+                auto lineEnd = ImVec2(cursorScreenCoordinates.x, cursorScreenCoordinates.y + cursorLineDifference + cursorFontHeight);
+                drawList->AddLine(lineStart, lineEnd, 0xFF1b1b1b, 1.2f);
             }
         }
+
+        currentLine++;
     }
 
     

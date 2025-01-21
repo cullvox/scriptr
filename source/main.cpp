@@ -167,11 +167,13 @@ int main(int, char**)
                 {
                     "text": "Some more child text!",
                     "bold": false,
+                    "size": 10.0,
                     "italic": true
                 },
                 {
                     "text": " should be bold!",
-                    "bold": false
+                    "bold": false,
+                    "underline": true
                 }
             ]
         }

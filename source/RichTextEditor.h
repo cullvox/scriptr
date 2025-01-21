@@ -7,11 +7,10 @@
 #include <unordered_map>
 #include <string>
 #include <variant>
-#include <vector>
 
 #include "imgui.h"
 
-typedef int RichTextPropertyFlags;  
+typedef int RichTextPropertyFlags;
 enum RichTextPropertyFlagBits {
     RichTextPropertyFlags_Bold = 0x00000001,
     RichTextPropertyFlags_Italic = 0x00000002,
@@ -28,7 +27,8 @@ public:
     void SetText(nlohmann::json formattedText);
     nlohmann::json GetText();
     std::string GetTextUnformatted();
-    
+    void SetCursorLocation(int line, int column);
+
     void Render();
 
 private:
@@ -56,10 +56,13 @@ private:
 
     std::optional<ImU32> ParseHexColorCode(const std::string& code);
     Block ParseTextBlock(Lines& lines, int currentLine, nlohmann::json formatObject, Block* parent);
+    size_t UTF8CharLength(char c);
+    void HandleKeyboardInput();
 
-    double cursorTimeOffset;
-    int cursorLine;
-    int cursorCharacter;
+    float mDefaultFontSize = 18.0f;
+    double mCursorTimeOffset = 0.0;
+    int mCursorLine;
+    int mCursorColumn;
 
     ImFont* mNormalFont;
     ImFont* mBoldFont;
