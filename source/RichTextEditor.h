@@ -40,7 +40,7 @@ private:
             , foregroundColor(0xFF000000)
             , backgroundColor(0x0)
             , additionalProperties() 
-        {    
+        {
         }
 
         std::string text;

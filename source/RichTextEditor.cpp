@@ -20,25 +20,6 @@ RichTextEditor::~RichTextEditor()
 {
 }
 
-// trim from start (in place)
-inline void ltrim(std::string &s) {
-    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {
-        return !std::isspace(ch);
-    }));
-}
-
-// trim from end (in place)
-inline void rtrim(std::string &s) {
-    s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch) {
-        return !std::isspace(ch);
-    }).base(), s.end());
-}
-
-inline void trim(std::string &s) {
-    rtrim(s);
-    ltrim(s);
-}
-
 std::optional<ImU32> RichTextEditor::ParseHexColorCode(const std::string& code)
 {
     static std::regex hexColorTest("^#(?:[0-9a-fA-F]{3,4}){1,2}$", std::regex_constants::optimize);
@@ -58,7 +39,6 @@ RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLi
 
     // Parse through all text properties.
     for (auto property : formatObject.items()) {
-        
         auto& key = property.key();
         auto& value = property.value();
         // Parse through the default values that rich text always have.
@@ -80,13 +60,13 @@ RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLi
         else if (key == "color" && value.is_string())
         {
             auto color = ParseHexColorCode(value);
-            if (color) 
+            if (color)
                 block.foregroundColor = color.value();
         }
         else if (key == "highlight" && value.is_string())
         {
             auto color = ParseHexColorCode(value);
-            if (color) 
+            if (color)
                 block.backgroundColor = color.value();
         }
         else if (key == "size" && value.is_number_float())
@@ -100,21 +80,24 @@ RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLi
 
             if (value.is_string()) {
                 // Test strings for hex color codes.
-                auto str = property.value().get<std::string>();
+                auto str = value.get<std::string>();
                 auto color = ParseHexColorCode(str);
-                if (color.has_value()) additional = color.value();
-                else additional = str;
+
+                if (color.has_value())
+                    additional = color.value();
+                else
+                    additional = str;
             }
             else if (value.is_number_integer())
                 additional = value.get<int>();
             else if (value.is_number_float())
                 additional = value.get<float>();
-            else if (value.is_boolean())         
+            else if (value.is_boolean())
                 additional = value.get<bool>();
             else 
                 continue; // Skip properties that are invalid.
 
-            block.additionalProperties.emplace(std::make_pair(key, additional));
+            block.additionalProperties[key] = additional;
         }
     }
 
@@ -316,7 +299,7 @@ void RichTextEditor::Render()
                 auto cursorLineDifference = maxFontSize - cursorFontHeight;
                 auto lineStart = ImVec2(cursorScreenCoordinates.x, cursorScreenCoordinates.y + cursorLineDifference);
                 auto lineEnd = ImVec2(cursorScreenCoordinates.x, cursorScreenCoordinates.y + cursorLineDifference + cursorFontHeight);
-                drawList->AddLine(lineStart, lineEnd, 0xFF1b1b1b, 1.2f);
+                drawList->AddLine(lineStart, lineEnd, 0xFF1b1b1b, 2.f);
             }
         }
 

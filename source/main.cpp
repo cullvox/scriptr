@@ -121,6 +121,7 @@ int main(int, char**)
     // Setup Dear ImGui style
     //ImGui::StyleColorsDark();
     ImGui::StyleColorsLight();
+    ImGui::GetStyle().ScaleAllSizes(2.0f);
     
 
     // Setup Platform/Renderer backends
@@ -140,7 +141,10 @@ int main(int, char**)
     // - Remember that in C/C++ if you want to include a backslash \ in a string literal you need to write a double backslash \\ !
     // - Our Emscripten build process allows embedding fonts to be accessible at runtime from the "fonts/" folder. See Makefile.emscripten for details.
     // io.Fonts->AddFontDefault();
-    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/Inter-Regular.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    ImFontConfig config;
+    config.RasterizerDensity = 4.0f;
+
+    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/Inter-Regular.ttf", 18.0f, &config, io.Fonts->GetGlyphRangesDefault());
     ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/Inter-Black.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
     ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/Inter-Italic.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
     ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/InterDisplay-BlackItalic.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
@@ -316,7 +320,7 @@ int main(int, char**)
 
         // Rendering
         ImGui::Render();
-        glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
+        glViewport(0, 0, (int)io.DisplayFramebufferScale.x, (int)io.DisplayFramebufferScale.y);
         glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
         glClear(GL_COLOR_BUFFER_BIT);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
