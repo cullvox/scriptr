@@ -29,7 +29,8 @@ std::optional<ImU32> RichTextEditor::ParseHexColorCode(const std::string& code)
 }
 
 
-RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLine, nlohmann::json formatObject, Block* parent) {
+RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLine, nlohmann::json formatObject, Block* parent)
+{
 
     Block block;
     if (parent)
@@ -38,9 +39,11 @@ RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLi
     block.text = formatObject.value("text", ""); // Text is the only property that is never inherited by parents.
 
     // Parse through all text properties.
-    for (auto property : formatObject.items()) {
+    for (auto property : formatObject.items()) 
+    {
         auto& key = property.key();
         auto& value = property.value();
+
         // Parse through the default values that rich text always have.
         if (key == "bold" && value.is_boolean()) 
         { 
@@ -102,7 +105,8 @@ RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLi
     }
 
     // Add the block to the line.
-    if (mLines.empty()) {
+    if (mLines.empty()) 
+    {
         mLines.push_back(Line{});
     }
 
@@ -110,11 +114,15 @@ RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLi
 
     // Parse all the children last that way we have all the properties are in the block.
     auto childObject = formatObject.find("children");
-    if (childObject != formatObject.end()) {
+    if (childObject != formatObject.end())
+    {
         auto children = childObject.value(); 
+        
         // Parse through child objects, could be a singluar object or an array of child objects.
         if (children.is_object())
+        {
             ParseTextBlock(lines, currentLine, children, &block);
+        }
         else if (children.is_array())
         {
             // Ensure all the child values are objects and recursively process them.
@@ -130,7 +138,7 @@ RichTextEditor::Block RichTextEditor::ParseTextBlock(Lines& lines, int currentLi
 }
 
 
-void RichTextEditor::SetText(nlohmann::json formatObject) 
+void RichTextEditor::SetText(nlohmann::json formatObject)
 {
     ParseTextBlock(mLines, 0, formatObject, nullptr);
 }
@@ -299,7 +307,7 @@ void RichTextEditor::Render()
                 auto cursorLineDifference = maxFontSize - cursorFontHeight;
                 auto lineStart = ImVec2(cursorScreenCoordinates.x, cursorScreenCoordinates.y + cursorLineDifference);
                 auto lineEnd = ImVec2(cursorScreenCoordinates.x, cursorScreenCoordinates.y + cursorLineDifference + cursorFontHeight);
-                drawList->AddLine(lineStart, lineEnd, 0xFF1b1b1b, 2.f);
+                drawList->AddLine(lineStart, lineEnd, 0xFF1b1b1b, 1.f);
             }
         }
 

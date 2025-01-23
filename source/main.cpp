@@ -121,9 +121,7 @@ int main(int, char**)
     // Setup Dear ImGui style
     //ImGui::StyleColorsDark();
     ImGui::StyleColorsLight();
-    ImGui::GetStyle().ScaleAllSizes(2.0f);
     
-
     // Setup Platform/Renderer backends
     ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
     ImGui_ImplOpenGL3_Init(glsl_version);
@@ -142,8 +140,6 @@ int main(int, char**)
     // - Our Emscripten build process allows embedding fonts to be accessible at runtime from the "fonts/" folder. See Makefile.emscripten for details.
     // io.Fonts->AddFontDefault();
     ImFontConfig config;
-    config.RasterizerDensity = 4.0f;
-
     ImFont* font = io.Fonts->AddFontFromFileTTF("resource/Inter-Regular.ttf", 18.0f, &config, io.Fonts->GetGlyphRangesDefault());
     ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/Inter-Black.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
     ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/Inter-Italic.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
@@ -171,13 +167,14 @@ int main(int, char**)
                 {
                     "text": "Some more child text!",
                     "bold": false,
-                    "size": 10.0,
+                    "size": 50.0,
                     "italic": true
                 },
                 {
                     "text": " should be bold!",
                     "bold": false,
-                    "underline": true
+                    "underline": true,
+                    "color": "#Ab4C3245"
                 }
             ]
         }
@@ -316,7 +313,6 @@ int main(int, char**)
         editor.Render();
 
         ImGui::End();
-
 
         // Rendering
         ImGui::Render();
