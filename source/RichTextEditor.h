@@ -15,6 +15,8 @@ enum RichTextPropertyFlagBits {
     RichTextPropertyFlags_Bold = 0x00000001,
     RichTextPropertyFlags_Italic = 0x00000002,
     RichTextPropertyFlags_Underline = 0x00000004,
+    RichTextPropertyFlags_Centered = 0x00000008,
+    RichTextPropertyFlags_RightAligned = 0x00000010,
 };
 
 using RichTextPropertyValue = std::variant<std::string, float, int, bool, ImU32 /* colors */>;
@@ -57,12 +59,15 @@ private:
     std::optional<ImU32> ParseHexColorCode(const std::string& code);
     Block ParseTextBlock(Lines& lines, int currentLine, nlohmann::json formatObject, Block* parent);
     size_t UTF8CharLength(char c);
+    ImFont* GetBlockFont(RichTextPropertyFlags properties);
     void HandleKeyboardInput();
+    void DrawCursor();
 
     float mDefaultFontSize = 18.0f;
     double mCursorTimeOffset = 0.0;
     int mCursorLine;
     int mCursorColumn;
+    ImU32 mCursorColor;
 
     ImFont* mNormalFont;
     ImFont* mBoldFont;

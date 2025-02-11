@@ -1,85 +1,85 @@
 [
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_demo.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_demo.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_demo.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_demo.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imgui_demo.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imgui_demo.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_draw.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_draw.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_draw.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_draw.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imgui_draw.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imgui_draw.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_impl_opengl3.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_impl_opengl3.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_impl_opengl3.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_impl_opengl3.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imgui_impl_opengl3.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imgui_impl_opengl3.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_impl_sdl2.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_impl_sdl2.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_impl_sdl2.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_impl_sdl2.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imgui_impl_sdl2.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imgui_impl_sdl2.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_tables.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_tables.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_tables.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_tables.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imgui_tables.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imgui_tables.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_widgets.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_widgets.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_widgets.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_widgets.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imgui_widgets.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imgui_widgets.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imgui.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imgui.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_stdlib.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_stdlib.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imgui_stdlib.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imgui_stdlib.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imgui_stdlib.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imgui_stdlib.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/misc/freetype/imgui_freetype.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/misc/freetype/imgui_freetype.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/misc/freetype/imgui_freetype.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/misc/freetype/imgui_freetype.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/misc/freetype/imgui_freetype.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/misc/freetype/imgui_freetype.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imnodes.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imnodes.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/imgui/imnodes.cpp.o -c /home/cullvox/Projects/scriptr/source/imgui/imnodes.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/imgui/imnodes.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/imgui/imnodes.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/gcc -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/glad/src/gl.c.o -c /home/cullvox/Projects/scriptr/source/glad/src/gl.c",
+  "command": "/usr/bin/gcc -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/glad/src/gl.c.o -c /home/cullvox/Projects/scriptr/source/glad/src/gl.c",
   "file": "/home/cullvox/Projects/scriptr/source/glad/src/gl.c",
   "output": "CMakeFiles/Scriptr.dir/source/glad/src/gl.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/RichTextEditor.cpp.o -c /home/cullvox/Projects/scriptr/source/RichTextEditor.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/RichTextEditor.cpp.o -c /home/cullvox/Projects/scriptr/source/RichTextEditor.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/RichTextEditor.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/RichTextEditor.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/node.cpp.o -c /home/cullvox/Projects/scriptr/source/node.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/node.cpp.o -c /home/cullvox/Projects/scriptr/source/node.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/node.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/node.cpp.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build",
-  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/main.cpp.o -c /home/cullvox/Projects/scriptr/source/main.cpp",
+  "command": "/usr/bin/g++ -DPOCO_ENABLE_CPP11 -DPOCO_ENABLE_CPP14 -DPOCO_HAVE_FD_EPOLL -DPOCO_OS_FAMILY_UNIX -DUTF8PROC_STATIC -D_DEBUG -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_REENTRANT -D_THREAD_SAFE -D_XOPEN_SOURCE=500 -I/home/cullvox/Projects/scriptr/source/glad/include -I/home/cullvox/Projects/scriptr/source/imgui -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/sdl2-build/include-config-debug/SDL2 -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/poco-src/Foundation/include -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -isystem /home/cullvox/Projects/scriptr/build/_deps/json-src/include -g -o CMakeFiles/Scriptr.dir/source/main.cpp.o -c /home/cullvox/Projects/scriptr/source/main.cpp",
   "file": "/home/cullvox/Projects/scriptr/source/main.cpp",
   "output": "CMakeFiles/Scriptr.dir/source/main.cpp.o"
 },
@@ -5677,242 +5677,344 @@
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/autofit/autofit.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/autofit/autofit.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/autofit/autofit.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/autofit/autofit.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/autofit/autofit.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/autofit/autofit.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftbase.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbase.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftbase.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbase.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbase.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftbase.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftbbox.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbbox.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftbbox.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbbox.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbbox.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftbbox.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftbdf.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbdf.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftbdf.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbdf.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbdf.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftbdf.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftbitmap.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbitmap.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftbitmap.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbitmap.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftbitmap.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftbitmap.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftcid.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftcid.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftcid.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftcid.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftcid.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftcid.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftfstype.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftfstype.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftfstype.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftfstype.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftfstype.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftfstype.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftgasp.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftgasp.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftgasp.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftgasp.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftgasp.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftgasp.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftglyph.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftglyph.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftglyph.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftglyph.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftglyph.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftglyph.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftgxval.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftgxval.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftgxval.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftgxval.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftgxval.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftgxval.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftinit.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftinit.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftinit.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftinit.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftinit.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftinit.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftmm.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftmm.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftmm.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftmm.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftmm.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftmm.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftotval.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftotval.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftotval.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftotval.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftotval.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftotval.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftpatent.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftpatent.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftpatent.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftpatent.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftpatent.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftpatent.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftpfr.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftpfr.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftpfr.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftpfr.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftpfr.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftpfr.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftstroke.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftstroke.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftstroke.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftstroke.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftstroke.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftstroke.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftsynth.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftsynth.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftsynth.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftsynth.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftsynth.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftsynth.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftsystem.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftsystem.c",
-  "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftsystem.c",
-  "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftsystem.c.o"
-},
-{
-  "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/fttype1.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/fttype1.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/fttype1.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/fttype1.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/fttype1.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/fttype1.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftwinfnt.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftwinfnt.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftwinfnt.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftwinfnt.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftwinfnt.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftwinfnt.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/bdf/bdf.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/bdf/bdf.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/bdf/bdf.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/bdf/bdf.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/bdf/bdf.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/bdf/bdf.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/bzip2/ftbzip2.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/bzip2/ftbzip2.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/bzip2/ftbzip2.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/cache/ftcache.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cache/ftcache.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/cache/ftcache.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cache/ftcache.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cache/ftcache.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/cache/ftcache.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/cff/cff.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cff/cff.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/cff/cff.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cff/cff.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cff/cff.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/cff/cff.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/cid/type1cid.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cid/type1cid.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/cid/type1cid.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cid/type1cid.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/cid/type1cid.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/cid/type1cid.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/gzip/ftgzip.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/gzip/ftgzip.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/gzip/ftgzip.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/gzip/ftgzip.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/gzip/ftgzip.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/gzip/ftgzip.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/lzw/ftlzw.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/lzw/ftlzw.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/lzw/ftlzw.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/lzw/ftlzw.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/lzw/ftlzw.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/lzw/ftlzw.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/pcf/pcf.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pcf/pcf.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/pcf/pcf.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pcf/pcf.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pcf/pcf.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/pcf/pcf.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/pfr/pfr.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pfr/pfr.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/pfr/pfr.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pfr/pfr.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pfr/pfr.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/pfr/pfr.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/psaux/psaux.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/psaux/psaux.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/psaux/psaux.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/psaux/psaux.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/psaux/psaux.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/psaux/psaux.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/pshinter/pshinter.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pshinter/pshinter.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/pshinter/pshinter.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pshinter/pshinter.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/pshinter/pshinter.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/pshinter/pshinter.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/psnames/psnames.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/psnames/psnames.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/psnames/psnames.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/psnames/psnames.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/psnames/psnames.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/psnames/psnames.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/raster/raster.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/raster/raster.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/raster/raster.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/raster/raster.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/raster/raster.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/raster/raster.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/sfnt/sfnt.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/sdf/sdf.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/sdf/sdf.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/sdf/sdf.c",
+  "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/sdf/sdf.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/sfnt/sfnt.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/sfnt/sfnt.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/smooth/smooth.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/smooth/smooth.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/smooth/smooth.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/smooth/smooth.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/smooth/smooth.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/smooth/smooth.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/truetype/truetype.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/truetype/truetype.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/svg/svg.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/svg/svg.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/svg/svg.c",
+  "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/svg/svg.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/truetype/truetype.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/truetype/truetype.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/truetype/truetype.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/truetype/truetype.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/type1/type1.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/type1/type1.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/type1/type1.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/type1/type1.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/type1/type1.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/type1/type1.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/type42/type42.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/type42/type42.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/type42/type42.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/type42/type42.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/type42/type42.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/type42/type42.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/winfonts/winfnt.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/winfonts/winfnt.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/winfonts/winfnt.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o"
 },
 {
   "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
-  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftdebug.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftdebug.c",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/builds/unix/ftsystem.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/builds/unix/ftsystem.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/builds/unix/ftsystem.c",
+  "output": "_deps/freetype-build/CMakeFiles/freetype.dir/builds/unix/ftsystem.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/freetype-build",
+  "command": "/usr/bin/gcc -DFT2_BUILD_LIBRARY -Dfreetype_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-src/include -I/home/cullvox/Projects/scriptr/build/_deps/freetype-build/include/freetype/config -g -fPIC -fvisibility=hidden -o CMakeFiles/freetype.dir/src/base/ftdebug.c.o -c /home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftdebug.c",
   "file": "/home/cullvox/Projects/scriptr/build/_deps/freetype-src/src/base/ftdebug.c",
   "output": "_deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftdebug.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutosvg-build",
+  "command": "/usr/bin/gcc -DPLUTOSVG_BUILD -Dplutosvg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutosvg.dir/source/plutosvg.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source/plutosvg.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source/plutosvg.c",
+  "output": "_deps/plutosvg-build/CMakeFiles/plutosvg.dir/source/plutosvg.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-blend.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-blend.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-blend.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-blend.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-canvas.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-canvas.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-canvas.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-canvas.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-font.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-font.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-font.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-font.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-matrix.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-matrix.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-matrix.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-matrix.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-paint.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-paint.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-paint.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-paint.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-path.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-path.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-path.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-path.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-rasterize.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-rasterize.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-rasterize.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-rasterize.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-surface.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-surface.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-surface.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-surface.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-ft-math.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-ft-math.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-ft-math.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-ft-math.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-ft-raster.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-ft-raster.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-ft-raster.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-ft-raster.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build",
+  "command": "/usr/bin/gcc -DPLUTOVG_BUILD -Dplutovg_EXPORTS -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source -g -std=gnu99 -fPIC -fvisibility=hidden -o CMakeFiles/plutovg.dir/source/plutovg-ft-stroker.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-ft-stroker.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/source/plutovg-ft-stroker.c",
+  "output": "_deps/plutovg-build/CMakeFiles/plutovg.dir/source/plutovg-ft-stroker.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-build/examples",
+  "command": "/usr/bin/gcc  -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -g -o CMakeFiles/smiley.dir/smiley.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutovg-src/examples/smiley.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/examples/smiley.c",
+  "output": "_deps/plutovg-build/examples/CMakeFiles/smiley.dir/smiley.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutosvg-build/examples",
+  "command": "/usr/bin/gcc  -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -g -std=gnu99 -o CMakeFiles/camera2png.dir/camera2png.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/examples/camera2png.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/examples/camera2png.c",
+  "output": "_deps/plutosvg-build/examples/CMakeFiles/camera2png.dir/camera2png.c.o"
+},
+{
+  "directory": "/home/cullvox/Projects/scriptr/build/_deps/plutosvg-build/examples",
+  "command": "/usr/bin/gcc  -I/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/source -I/home/cullvox/Projects/scriptr/build/_deps/plutovg-src/include -g -std=gnu99 -o CMakeFiles/svg2png.dir/svg2png.c.o -c /home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/examples/svg2png.c",
+  "file": "/home/cullvox/Projects/scriptr/build/_deps/plutosvg-src/examples/svg2png.c",
+  "output": "_deps/plutosvg-build/examples/CMakeFiles/svg2png.dir/svg2png.c.o"
 }
 ]

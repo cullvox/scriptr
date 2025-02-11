@@ -5,6 +5,7 @@
 #include <cfloat>
 #include <cmath>
 #include <cstddef>
+#include <cstdlib>
 #include <optional>
 #include <regex>
 #include <string>
@@ -211,28 +212,46 @@ void RichTextEditor::HandleKeyboardInput() {
 	}
 }
 
+ImFont* RichTextEditor::GetBlockFont(RichTextPropertyFlags flags)
+{
+    if (flags & RichTextPropertyFlags_Bold)
+        return mBoldFont;
+    else if (flags & RichTextPropertyFlags_Italic)
+        return mItalicFont;
+    else if (flags & RichTextPropertyFlags_Bold && flags & RichTextPropertyFlags_Italic)
+        return mItalicBoldFont;
+    else
+        return mNormalFont;
+}
+
 void RichTextEditor::Render() 
 {
     HandleKeyboardInput();
 
     auto drawList = ImGui::GetWindowDrawList();
 
-    // Draw the background for the editor.
+    // Draw the background for the editor.no I know 
     auto cursorScreenPos = ImGui::GetCursorScreenPos();
     auto contentRegion = ImGui::GetContentRegionAvail();
     auto backgroundRect = ImRect(cursorScreenPos.x, cursorScreenPos.y, cursorScreenPos.x + contentRegion.x, cursorScreenPos.y + contentRegion.y);
 
     drawList->AddRectFilled(backgroundRect.Min, backgroundRect.Max, 0xFFe0e0e0);
+    drawList->PushClipRect(backgroundRect.Min, backgroundRect.Max, false);
 
     int currentLine = 0;
-    for (auto& line : mLines) 
+    for (auto& line : mLines)
     {
 
         // Find the maximum font size used in this line.
         float maxFontSize = 0.0f;
+        float maxBaseline = 0.0f;
         for (auto& block : line) 
         {
             maxFontSize = std::max(maxFontSize, block.fontSize);
+
+            ImFont* font = GetBlockFont(block.propertyFlags);
+            auto mappedDescent = ImLinearRemapClamp(0, font->FontSize, 0, block.fontSize, std::abs(font->Descent));
+            maxBaseline = std::max(maxBaseline, std::abs(mappedDescent));
         }
 
         // Draw the text blocks.
@@ -240,27 +259,26 @@ void RichTextEditor::Render()
         
         auto cursorScreenCoordinates = cursorScreenPos;
         auto cursorFontHeight = line.size() > 0 ? line.front().fontSize : mDefaultFontSize;
+        auto cursorBaselineDifference = line.size() > 0 ? line.front().fontSize : mDefaultFontSize;
         
         for (auto& block : line) 
         {
-            const auto& additionalProperties = block.additionalProperties; 
+            const auto& additionalProperties = block.additionalProperties;
 
             // Determine the font that we're going to use.
-            ImFont* font = mNormalFont ? mNormalFont : ImGui::GetFont();
-
-            if (block.propertyFlags & RichTextPropertyFlags_Bold)
-                font = mBoldFont;
-            if (block.propertyFlags & RichTextPropertyFlags_Italic)
-                font = mItalicFont;
-            if (block.propertyFlags & RichTextPropertyFlags_Bold && block.propertyFlags & RichTextPropertyFlags_Italic)
-                font = mItalicBoldFont;
+            ImFont* font = GetBlockFont(block.propertyFlags);
             
             // Calculate the text mathematics for this block.
             auto fontSizeDifference = maxFontSize - block.fontSize;
             auto drawCursorLocation = ImGui::GetCursorScreenPos();
-            auto textLocation = ImVec2(drawCursorLocation.x, drawCursorLocation.y + fontSizeDifference);
             auto textSize = font->CalcTextSizeA(block.fontSize, FLT_MAX, -1.0f, block.text.data());
             auto textScreenRect = ImRect(drawCursorLocation.x, drawCursorLocation.y, drawCursorLocation.x + textSize.x, drawCursorLocation.y + textSize.y);
+
+            // Consider the difference in baseline of different font sizes.
+            auto baselineHeight = ImLinearRemapClamp(0, font->FontSize, 0, block.fontSize, std::abs(font->Descent));
+            auto baselineDifference = maxBaseline - baselineHeight;
+
+            auto textLocation = ImVec2(drawCursorLocation.x, drawCursorLocation.y + fontSizeDifference - baselineDifference);
 
             if ((block.backgroundColor & IM_COL32_A_MASK) != 0)
                 drawList->AddRectFilled(textScreenRect.Min, textScreenRect.Max, block.backgroundColor);
@@ -269,28 +287,9 @@ void RichTextEditor::Render()
 
             if (block.propertyFlags & RichTextPropertyFlags_Underline)
             {
-                auto underlineStart = ImVec2(textScreenRect.Min.x, textScreenRect.Max.y);
-                auto underlineEnd = ImVec2(textScreenRect.Max.x, textScreenRect.Max.y);
+                auto underlineStart = ImVec2(textScreenRect.Min.x, textScreenRect.Min.y);
+                auto underlineEnd = ImVec2(textScreenRect.Max.x, textScreenRect.Max.y + fontSizeDifference);
                 drawList->AddLine(underlineStart, underlineEnd, block.foregroundColor);
-            }
-
-            if (mCursorLine == currentLine && mCursorColumn > currentColumn)
-            {
-                for (int i = 0; i < block.text.size(); ) 
-                {
-                    if (currentColumn >= mCursorColumn)
-                        break;
-
-                    auto characterBytes = UTF8CharLength(block.text[i]);
-                    auto characterSize = font->CalcTextSizeA(block.fontSize, FLT_MAX, -1.0f, block.text.data() + i, block.text.data() + i + characterBytes);
-                    i += characterBytes;
-
-                    cursorScreenCoordinates.x += characterSize.x;
-                    cursorScreenCoordinates.y = drawCursorLocation.y;
-                    cursorFontHeight = block.fontSize;
-
-                    currentColumn++;
-                }
             }
 
             // Set the cursors new position.
@@ -298,22 +297,55 @@ void RichTextEditor::Render()
             ImGui::SetCursorScreenPos(drawCursorLocation);
         }
 
+        currentLine++;
+    }
 
-        if (mCursorLine == currentLine) 
+    drawList->PopClipRect();
+
+}
+
+void RichTextEditor::DrawCursor()
+{
+    
+
+    if (mCursorLine == currentLine) 
         {
             // Draw the cursor every half second.
             if (std::fmod(ImGui::GetTime() + mCursorTimeOffset, 1) < 0.5f)
             {   
+/*                 if (mCursorColumn == 0) {
+                    cursorBaselineDifference = line.front().
+                }
+
+                if (mCursorLine == currentLine && mCursorColumn > currentColumn)
+                {
+                    for (int i = 0; i < block.text.size(); ) 
+                    {
+                        if (currentColumn >= mCursorColumn)
+                            break;
+
+                        auto characterBytes = UTF8CharLength(block.text[i]);
+                        auto characterSize = font->CalcTextSizeA(block.fontSize, FLT_MAX, -1.0f, block.text.data() + i, block.text.data() + i + characterBytes);
+                        i += characterBytes;
+
+                        cursorScreenCoordinates.x += characterSize.x;
+                        cursorScreenCoordinates.y = drawCursorLocation.y;
+                        cursorFontHeight = block.fontSize;
+                        cursorBaselineDifference = baselineDifference;
+
+                        currentColumn++;
+                    }
+                } */
+
                 auto cursorLineDifference = maxFontSize - cursorFontHeight;
-                auto lineStart = ImVec2(cursorScreenCoordinates.x, cursorScreenCoordinates.y + cursorLineDifference);
-                auto lineEnd = ImVec2(cursorScreenCoordinates.x, cursorScreenCoordinates.y + cursorLineDifference + cursorFontHeight);
+                auto lineStart = ImVec2(std::round(cursorScreenCoordinates.x), cursorScreenCoordinates.y + cursorLineDifference - cursorBaselineDifference);
+                auto lineEnd = ImVec2(std::round(cursorScreenCoordinates.x), cursorScreenCoordinates.y + cursorLineDifference + cursorFontHeight - cursorBaselineDifference);
+
+                
+
                 drawList->AddLine(lineStart, lineEnd, 0xFF1b1b1b, 1.f);
+                //drawList->AddRectFilled(lineStart, lineEnd, 0xFF1b1b1b);
             }
         }
-
-        currentLine++;
-    }
-
-    
 
 }

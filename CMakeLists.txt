@@ -23,9 +23,16 @@ CPMAddPackage(
 
 CPMAddPackage(
   NAME freetype
-  GIT_REPOSITORY https://github.com/aseprite/freetype2.git
-  GIT_TAG VER-2-10-0
-  VERSION 2.10.0
+  GIT_REPOSITORY https://github.com/freetype/freetype
+  GIT_TAG VER-2-13-3
+  VERSION 2.13.3
+)
+
+CPMAddPackage(
+  NAME plutosvg
+  GIT_REPOSITORY https://github.com/sammycage/plutosvg
+  GIT_TAG v0.0.4
+  VERSION 0.0.4
 )
 
 CPMAddPackage("gh:nlohmann/json@3.11.3")
@@ -58,7 +65,7 @@ add_executable(Scriptr
     "source/main.cpp")
 
 target_compile_features(Scriptr PUBLIC cxx_std_17)
-target_link_libraries(Scriptr PUBLIC SDL2::SDL2 freetype Poco::Foundation nlohmann_json)
+target_link_libraries(Scriptr PUBLIC SDL2::SDL2 freetype Poco::Foundation nlohmann_json plutosvg)
 target_include_directories(Scriptr PRIVATE "source/glad/include" "source/imgui/")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

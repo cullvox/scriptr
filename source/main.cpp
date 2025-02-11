@@ -7,6 +7,7 @@
 // - Documentation        https://dearimgui.com/docs (same as your local docs/ folder).
 // - Introduction, links and more at the top of imgui.cpp
 
+#include "misc/freetype/imgui_freetype.h"
 #include <cstddef>
 #include <nlohmann/json_fwd.hpp>
 #define SDL_MAIN_HANDLED
@@ -139,14 +140,27 @@ int main(int, char**)
     // - Remember that in C/C++ if you want to include a backslash \ in a string literal you need to write a double backslash \\ !
     // - Our Emscripten build process allows embedding fonts to be accessible at runtime from the "fonts/" folder. See Makefile.emscripten for details.
     // io.Fonts->AddFontDefault();
-    ImFontConfig config;
-    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/Inter-Regular.ttf", 18.0f, &config, io.Fonts->GetGlyphRangesDefault());
-    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/Inter-Black.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
-    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/Inter-Italic.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
-    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/InterDisplay-BlackItalic.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    static ImWchar ranges[] = { 0x1, (ImWchar)0x1FFFF, 0 };
+    static ImFontConfig emojiCfg;
+    emojiCfg.OversampleH = emojiCfg.OversampleV = 1;
+    emojiCfg.MergeMode = true;
+    emojiCfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
+
+    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/Inter-Regular.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 18.0f, &emojiCfg, ranges);
+
+    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/Inter-Black.ttf", 18.0f, NULL, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 18.0f, &emojiCfg, ranges);
+
+    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/Inter-Italic.ttf", 48.0f, NULL, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 48.0f, &emojiCfg, ranges);
+
+    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/InterDisplay-BlackItalic.ttf", 18.0f, NULL, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 18.0f, &emojiCfg, ranges);
+
     IM_ASSERT(font != nullptr && fontBold != nullptr && fontItalic != nullptr && fontItalicBold != nullptr);
 
-    io.Fonts->Build();
+    
 
     // Our state
     bool show_demo_window = true;
@@ -158,20 +172,21 @@ int main(int, char**)
 
     example::Graph<Node> graph;
 
-    auto json = nlohmann::json::parse(R"(
+    auto json = nlohmann::json::parse(u8R"(
         {
-            "text": "Some Text Here! ",
-            "bold": true,
+            "text": "Some Text Here! 😀 🦊 ",
+            "bold": false,
             "link": "https://github.com/cullvox",
             "children": [
                 {
-                    "text": "Some more child text!",
+                    "text": "Some more child 🦊 text!",
                     "bold": false,
                     "size": 50.0,
-                    "italic": true
+                    "italic": true,
+                    "underline": true
                 },
                 {
-                    "text": " should be bold!",
+                    "text": " should be bold! 🦊",
                     "bold": false,
                     "underline": true,
                     "color": "#Ab4C3245"
