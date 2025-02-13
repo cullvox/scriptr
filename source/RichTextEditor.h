@@ -10,16 +10,6 @@
 
 #include "imgui.h"
 
-typedef int RichTextPropertyFlags;
-enum RichTextPropertyFlagBits {
-    RichTextPropertyFlags_Bold = 0x00000001,
-    RichTextPropertyFlags_Italic = 0x00000002,
-    RichTextPropertyFlags_Underline = 0x00000004,
-    RichTextPropertyFlags_Centered = 0x00000008,
-    RichTextPropertyFlags_RightAligned = 0x00000010,
-};
-
-using RichTextPropertyValue = std::variant<std::string, float, int, bool, ImU32 /* colors */>;
 
 class RichTextEditor {
 public:
@@ -34,26 +24,7 @@ public:
     void Render();
 
 private:
-    struct Block {
-        Block()
-            : text()
-            , propertyFlags(0)
-            , fontSize(18.0f)
-            , foregroundColor(0xFF000000)
-            , backgroundColor(0x0)
-            , additionalProperties()
-            , children()
-        {
-        }
-
-        std::string text;
-        RichTextPropertyFlags propertyFlags;
-        float fontSize;
-        ImU32 foregroundColor;
-        ImU32 backgroundColor;
-        std::unordered_map<std::string, RichTextPropertyValue> additionalProperties;
-        std::vector<Block> children;
-    };
+    
 
     typedef std::list<Block> Document;
 
@@ -76,5 +47,5 @@ private:
     ImFont* mBoldFont;
     ImFont* mItalicFont;
     ImFont* mItalicBoldFont;
-    Lines mLines;
+    Document mDoc;
 };
