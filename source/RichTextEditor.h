@@ -41,7 +41,8 @@ private:
             , fontSize(18.0f)
             , foregroundColor(0xFF000000)
             , backgroundColor(0x0)
-            , additionalProperties() 
+            , additionalProperties()
+            , children()
         {
         }
 
@@ -51,16 +52,18 @@ private:
         ImU32 foregroundColor;
         ImU32 backgroundColor;
         std::unordered_map<std::string, RichTextPropertyValue> additionalProperties;
+        std::vector<Block> children;
     };
 
-    typedef std::list<Block> Line;
-    typedef std::list<Line> Lines;
+    typedef std::list<Block> Document;
 
     std::optional<ImU32> ParseHexColorCode(const std::string& code);
-    Block ParseTextBlock(Lines& lines, int currentLine, nlohmann::json formatObject, Block* parent);
+    Block ParseTextBlock(Document& doc, int currentLine, nlohmann::json formatObject, Block* parent);
     size_t UTF8CharLength(char c);
     ImFont* GetBlockFont(RichTextPropertyFlags properties);
     void HandleKeyboardInput();
+    void ComputeLineAttributes(Document& doc, float& maxFontSize, float& maxBaseline);
+    nlohmann::json CompileLinesToJSON();
     void DrawCursor();
 
     float mDefaultFontSize = 18.0f;
