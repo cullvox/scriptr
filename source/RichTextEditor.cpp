@@ -254,13 +254,13 @@ void RichTextEditor::Render()
     drawList->PushClipRect(backgroundRect.Min, backgroundRect.Max, false);
 
     int currentLine = 0;
-    for (auto& line : mLines)
+    for (auto& block : mDoc.GetBlocks())
     {
 
         // Find the maximum font size used in this line.
         float maxFontSize = 0.0f;
         float maxBaseline = 0.0f;
-        ComputeLineAttributes(line, maxFontSize, maxBaseline);
+        ComputeLineAttributes(block, maxFontSize, maxBaseline);
 
         // Draw the text blocks.
         int currentColumn = 0;
@@ -268,7 +268,12 @@ void RichTextEditor::Render()
         auto cursorScreenCoordinates = cursorScreenPos;
         auto cursorFontHeight = line.size() > 0 ? line.front().fontSize : mDefaultFontSize;
         auto cursorBaselineDifference = line.size() > 0 ? line.front().fontSize : mDefaultFontSize;
-        
+
+
+        if (line.text.find_first_of('\n')) {
+
+        }
+
         for (auto& block : line) 
         {
             const auto& additionalProperties = block.additionalProperties;

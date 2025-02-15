@@ -4,12 +4,12 @@
 #include <nlohmann/json.hpp>
 #include <nlohmann/json_fwd.hpp>
 #include <optional>
-#include <unordered_map>
 #include <string>
+#include <unordered_map>
 #include <variant>
 
+#include "RichTextDocument.h"
 #include "imgui.h"
-
 
 class RichTextEditor {
 public:
@@ -24,28 +24,23 @@ public:
     void Render();
 
 private:
-    
-
-    typedef std::list<Block> Document;
 
     std::optional<ImU32> ParseHexColorCode(const std::string& code);
-    Block ParseTextBlock(Document& doc, int currentLine, nlohmann::json formatObject, Block* parent);
-    size_t UTF8CharLength(char c);
-    ImFont* GetBlockFont(RichTextPropertyFlags properties);
     void HandleKeyboardInput();
-    void ComputeLineAttributes(Document& doc, float& maxFontSize, float& maxBaseline);
+    void ComputeLineAttributes(float& maxFontSize, float& maxBaseline);
     nlohmann::json CompileLinesToJSON();
     void DrawCursor();
+    ImFont* GetBlockFont(RichTextPropertyFlags properties);
 
     float mDefaultFontSize = 18.0f;
     double mCursorTimeOffset = 0.0;
     int mCursorLine;
     int mCursorColumn;
     ImU32 mCursorColor;
+    RichTextDocument mDoc;
 
     ImFont* mNormalFont;
     ImFont* mBoldFont;
     ImFont* mItalicFont;
     ImFont* mItalicBoldFont;
-    Document mDoc;
 };
