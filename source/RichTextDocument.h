@@ -3,13 +3,13 @@
 #include <cstddef>
 #include <cstdint>
 #include <list>
-#include <nlohmann/json_fwd.hpp>
-#include <span>
+#include <optional>
 #include <string>
 #include <string_view>
 #include <unordered_map>
 #include <variant>
-#include <vector>
+
+#include <nlohmann/json_fwd.hpp>
 
 typedef int RichTextPropertyFlags;
 enum RichTextPropertyFlagBits {
@@ -21,7 +21,7 @@ enum RichTextPropertyFlagBits {
     RichTextPropertyFlag_IsLine = 0x00000020
 };
 
-using RichTextPropertyValue = std::variant<std::u8string, float, int, bool, uint32_t /* colors */>;
+using RichTextPropertyValue = std::variant<std::string, float, int, bool, uint32_t /* colors */>;
 
 class RichTextBlock {
 public:
@@ -32,17 +32,15 @@ public:
         , foregroundColor(0xFF000000)
         , backgroundColor(0x0)
         , additionalProperties()
-        , children()
     {
     }
 
-    std::u8string text;
+    std::string text;
     RichTextPropertyFlags propertyFlags;
     float fontSize;
     uint32_t foregroundColor;
     uint32_t backgroundColor;
-    std::unordered_map<std::u8string, RichTextPropertyValue> additionalProperties;
-    std::list<RichTextBlock> children;
+    std::unordered_map<std::string, RichTextPropertyValue> additionalProperties;
 };
 
 class RichTextDocument {
@@ -55,22 +53,22 @@ public:
     std::size_t GetDocumentCharacterLength();
     std::string ExportToJSON();
     std::string ExportToHTML();
-    const RichTextBlock& GetBlocks() const { return mRootBlock; }
-    std::size_t GetLineCount();
-    RichTextBlock GetLine(int line);
-    RichTextBlock AsLines();
+    auto& GetBlocks() const { return mBlocks; }
+    std::size_t GetLineCount() const;
+    std::list<RichTextBlock> GetLine(int line) const;
 
     /// EDITING ///
-    void Insert(std::size_t characterLocation, std::u8string_view string);
-    void Insert(std::size_t characterLocation, std::span<RichTextBlock> blocks);
+    void Insert(std::size_t characterLocation, std::string_view string);
+    void Insert(std::size_t characterLocation, const std::list<RichTextBlock>& blocks);
     void Remove(std::size_t characterStart, std::size_t characterEnd);
     
 private:
-    RichTextBlock ParseTextBlock(int currentLine, nlohmann::json formatObject, RichTextBlock* parent);
+    void ParseTextBlock(std::list<RichTextBlock>& blocks, int currentLine, nlohmann::json formatObject, RichTextBlock* parent);
     size_t UTF8CharLength(char c);
+    std::optional<uint32_t> ParseHexColorCode(const std::string& code);
 
-    void ImportFromHTML(std::u8string_view string);
-    void ImportFromJSON(std::u8string_view string);
+    void ImportFromHTML(std::string_view string);
+    void ImportFromJSON(std::string_view string);
 
-    RichTextBlock mRootBlock;
+    std::list<RichTextBlock> mBlocks;
 };

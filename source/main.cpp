@@ -7,9 +7,10 @@
 // - Documentation        https://dearimgui.com/docs (same as your local docs/ folder).
 // - Introduction, links and more at the top of imgui.cpp
 
+#include "RichTextDocument.h"
 #include "misc/freetype/imgui_freetype.h"
 #include <cstddef>
-#include <nlohmann/json_fwd.hpp>
+#include <nlohmann/json.hpp>
 #define SDL_MAIN_HANDLED
 
 #include "imgui/imgui.h"
@@ -28,6 +29,8 @@
 #ifdef __EMSCRIPTEN__
 #include "../libs/emscripten/emscripten_mainloop_stub.h"
 #endif
+
+
 
 #include "imgui/imnodes.h"
 #include "node.hpp"
@@ -146,17 +149,17 @@ int main(int, char**)
     emojiCfg.MergeMode = true;
     emojiCfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
 
-    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/Inter-Regular.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
+    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Regular.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
     io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 18.0f, &emojiCfg, ranges);
 
-    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/Inter-Black.ttf", 18.0f, NULL, ranges);
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 18.0f, &emojiCfg, ranges);
-
-    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/Inter-Italic.ttf", 48.0f, NULL, ranges);
+    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Bold.ttf", 48.0f, NULL, ranges);
     io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 48.0f, &emojiCfg, ranges);
 
-    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/InterDisplay-BlackItalic.ttf", 18.0f, NULL, ranges);
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 18.0f, &emojiCfg, ranges);
+    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Italic.ttf", 48.0f, NULL, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 48.0f, &emojiCfg, ranges);
+
+    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-BoldItalic.ttf", 48.0f, NULL, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 48.0f, &emojiCfg, ranges);
 
     IM_ASSERT(font != nullptr && fontBold != nullptr && fontItalic != nullptr && fontItalicBold != nullptr);
 
@@ -175,28 +178,43 @@ int main(int, char**)
     auto json = nlohmann::json::parse(u8R"(
         {
             "text": "Some Text Here! 😀 🦊 ",
-            "bold": false,
+            "bold": true,
+            "underline": true,
             "link": "https://github.com/cullvox",
             "children": [
                 {
-                    "text": "Some more child 🦊 text!",
-                    "bold": false,
-                    "size": 50.0,
+                    "text": "Some more GIDDY gjigiy child 🦊 text!",
+                    "bold": true,
+                    "size": 75.0,
                     "italic": true,
                     "underline": true
                 },
                 {
-                    "text": " should be bold! 🦊",
-                    "bold": false,
+                    "text": "\nshould be bold! 🦊",
                     "underline": true,
                     "color": "#Ab4C3245"
+                },
+                {
+                    "text": "\n\t\t\tSOME MORE GIDDY gjigiy TEXT! 🦊",
+                    "bold": false
+                },
+                {
+                    "text": "\nSOME MORE TEXT! 🦊",
+                    "bold": false,
+                    "highlight": "#Ab70ded7"
+                },
+                {
+                    "text": "\nSOME MORE GIDDY gjigiy TEXT! 🦊",
+                    "bold": false,
+                    "underline": false
                 }
             ]
         }
         )");
 
+    RichTextDocument doc{json};
     RichTextEditor editor{font, fontBold, fontItalic, fontItalicBold};
-    editor.SetText(json);
+    editor.SetDocument(doc);
 
     // Main loop
     bool done = false;

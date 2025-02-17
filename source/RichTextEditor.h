@@ -1,43 +1,30 @@
 #pragma once
 
-#include <list>
-#include <nlohmann/json.hpp>
-#include <nlohmann/json_fwd.hpp>
-#include <optional>
-#include <string>
-#include <unordered_map>
-#include <variant>
-
-#include "RichTextDocument.h"
 #include "imgui.h"
+#include "RichTextDocument.h"
 
 class RichTextEditor {
 public:
     RichTextEditor(ImFont* normalFont=nullptr, ImFont* boldFont=nullptr, ImFont* italicFont=nullptr, ImFont* italicBoldFont=nullptr);
     ~RichTextEditor();
 
-    void SetText(nlohmann::json formattedText);
-    nlohmann::json GetText();
-    std::string GetTextUnformatted();
     void SetCursorLocation(int line, int column);
-
+    void SetDocument(RichTextDocument& doc);
     void Render();
 
 private:
-
-    std::optional<ImU32> ParseHexColorCode(const std::string& code);
     void HandleKeyboardInput();
-    void ComputeLineAttributes(float& maxFontSize, float& maxBaseline);
-    nlohmann::json CompileLinesToJSON();
+    void ComputeLineAttributes(std::list<RichTextBlock>& block, float& maxFontSize, float& maxBaseline);
     void DrawCursor();
     ImFont* GetBlockFont(RichTextPropertyFlags properties);
+    std::size_t UTF8CharLength(char c);
 
     float mDefaultFontSize = 18.0f;
     double mCursorTimeOffset = 0.0;
     int mCursorLine;
     int mCursorColumn;
     ImU32 mCursorColor;
-    RichTextDocument mDoc;
+    RichTextDocument* mDoc;
 
     ImFont* mNormalFont;
     ImFont* mBoldFont;
