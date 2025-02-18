@@ -36,11 +36,11 @@ std::list<RichTextBlock> RichTextDocument::GetLine(int line) const
         return {};
 
     std::list<RichTextBlock> out;
-    
+
     // Offset the iterator to the block containing the line.
     auto firstBlock = mBlocks.begin();
     auto currentLine = (std::size_t)0;
-    auto startOffset = (typeof(std::string::npos))(0); 
+    auto startOffset = (std::size_t)0; 
     while(firstBlock != mBlocks.end() && currentLine < line) 
     {
         // Search for the next line.
@@ -67,11 +67,10 @@ std::list<RichTextBlock> RichTextDocument::GetLine(int line) const
             startOffset = 0;
 
         if ((endOffset = lastBlock->text.find_first_of('\n', startOffset)) != std::string::npos)
-        {
             foundFinal = true;
-        }
 
-        if (!startOffset && !endOffset) continue;
+        if (!startOffset && !endOffset) 
+            continue;
 
         // Add this block to the final line out.
         auto newBlock = *lastBlock;
@@ -172,7 +171,7 @@ void RichTextDocument::ParseTextBlock(std::list<RichTextBlock>& blocks, int curr
     if (childObject != formatObject.end())
     {
         auto children = childObject.value(); 
-        
+
         // Parse through child objects, could be a singluar object or an array of child objects.
         if (children.is_object())
         {
