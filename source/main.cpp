@@ -114,6 +114,20 @@ int main(int, char**)
     SDL_GL_MakeCurrent(window, gl_context);
     SDL_GL_SetSwapInterval(1); // Enable vsync
 
+    // Query default monitor resolution
+    float ddpi, hdpi, vdpi;
+    if (SDL_GetDisplayDPI(0, &ddpi, &hdpi, &vdpi) != 0) {
+        fprintf(stderr, "Failed to obtain DPI information for display 0: %s\n", SDL_GetError());
+        exit(1);
+    }
+    float dpi_scaling = 96.f / ddpi;
+    SDL_Rect display_bounds;
+    if (SDL_GetDisplayUsableBounds(0, &display_bounds) != 0) {
+        fprintf(stderr, "Failed to obtain bounds of display 0: %s\n", SDL_GetError());
+        exit(1);
+    }
+    // int win_w = display_bounds.w * 7 / 8, win_h = display_bounds.h * 7 / 8;
+
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -144,22 +158,30 @@ int main(int, char**)
     // - Our Emscripten build process allows embedding fonts to be accessible at runtime from the "fonts/" folder. See Makefile.emscripten for details.
     // io.Fonts->AddFontDefault();
     static ImWchar ranges[] = { 0x1, (ImWchar)0x1FFFF, 0 };
-    static ImFontConfig emojiCfg;
-    emojiCfg.OversampleH = emojiCfg.OversampleV = 1;
+    
+    ImFontConfig fontCfg;
+    fontCfg.OversampleH = 2;
+    fontCfg.OversampleV = 2;
+    fontCfg.RasterizerMultiply = 1.5f;
+
+    ImFontConfig emojiCfg;
+    fontCfg.OversampleH = 2;
+    fontCfg.OversampleV = 2;
+    fontCfg.RasterizerMultiply = 1.5f;
     emojiCfg.MergeMode = true;
     emojiCfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
 
-    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Regular.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesDefault());
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 18.0f, &emojiCfg, ranges);
+    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Regular.ttf", dpi_scaling * 18.0f, &fontCfg, io.Fonts->GetGlyphRangesDefault());
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", dpi_scaling * 18.0f, &emojiCfg, ranges);
 
-    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Bold.ttf", 48.0f, NULL, ranges);
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 48.0f, &emojiCfg, ranges);
+    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Bold.ttf", dpi_scaling * 18.0f, &fontCfg, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", dpi_scaling * 18.0f, &emojiCfg, ranges);
 
-    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Italic.ttf", 48.0f, NULL, ranges);
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 48.0f, &emojiCfg, ranges);
+    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Italic.ttf", dpi_scaling * 18.0f, &fontCfg, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", dpi_scaling * 18.0f, &emojiCfg, ranges);
 
-    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-BoldItalic.ttf", 48.0f, NULL, ranges);
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", 48.0f, &emojiCfg, ranges);
+    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-BoldItalic.ttf", dpi_scaling * 18.0f, &fontCfg, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", dpi_scaling * 18.0f, &emojiCfg, ranges);
 
     IM_ASSERT(font != nullptr && fontBold != nullptr && fontItalic != nullptr && fontItalicBold != nullptr);
 
@@ -191,16 +213,19 @@ int main(int, char**)
                 },
                 {
                     "text": "\nshould be bold! 🦊",
+                    "size": 23.0,
                     "underline": true,
                     "color": "#Ab4C3245"
                 },
                 {
-                    "text": "\n\t\t\tSOME MORE GIDDY gjigiy TEXT! 🦊",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla nunc, pellentesque sodales odio et, sodales placerat diam. Pellentesque ante tortor, tristique a scelerisque eu, lacinia at justo. Cras gravida, nulla ac feugiat elementum, dolor orci malesuada est, eget molestie urna eros at justo. Nam quis neque vitae velit consectetur imperdiet. Quisque ligula leo, auctor eget cursus ac, consequat in justo. Praesent feugiat euismod mauris in mattis. Phasellus pellentesque quis eros vel interdum. Donec facilisis enim orci, sed ullamcorper mi dapibus vel. Aliquam dignissim eleifend nulla ac ullamcorper. Nullam ultricies tortor nec semper pretium. Nam venenatis tortor non magna auctor fermentum. Pellentesque non velit faucibus, mattis felis quis, malesuada augue. Nam a condimentum orci. ",
+                    "size": 18.0,
                     "bold": false
                 },
                 {
                     "text": "\nSOME MORE TEXT! 🦊",
                     "bold": false,
+                    "size": 23.0,
                     "highlight": "#Ab70ded7"
                 },
                 {
@@ -215,6 +240,7 @@ int main(int, char**)
     RichTextDocument doc{json};
     RichTextEditor editor{font, fontBold, fontItalic, fontItalicBold};
     editor.SetDocument(doc);
+    editor.SetDPIScaling(dpi_scaling);
 
     // Main loop
     bool done = false;

@@ -109,6 +109,11 @@ void RichTextEditor::ComputeLineAttributes(std::list<RichTextBlock>& line, float
     }
 }
 
+void RichTextEditor::SetDPIScaling(float dpiScaling)
+{
+    mDpiScaling = dpiScaling;
+}
+
 void RichTextEditor::Render() 
 {
     HandleKeyboardInput();

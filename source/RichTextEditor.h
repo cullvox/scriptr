@@ -10,6 +10,7 @@ public:
 
     void SetCursorLocation(int line, int column);
     void SetDocument(RichTextDocument& doc);
+    void SetDPIScaling(float dpiScaling);
     void Render();
 
 private:
@@ -19,6 +20,7 @@ private:
     ImFont* GetBlockFont(RichTextPropertyFlags properties);
     std::size_t UTF8CharLength(char c);
 
+    float mDpiScaling = 1.0f;
     float mDefaultFontSize = 18.0f;
     double mCursorTimeOffset = 0.0;
     int mCursorLine;
