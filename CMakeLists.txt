@@ -6,10 +6,10 @@ option(CPM_USE_LOCAL_PACKAGES ON)
 include(cmake/CPM.cmake)
 
 CPMAddPackage(
-    NAME SDL2
+    NAME SDL3
     GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-    GIT_TAG release-2.30.11
-    VERSION 2.30.11
+    GIT_TAG release-3.2.4
+    VERSION 3.2.4
     OPTIONS "SDL_TEST OFF" "SDL_SHARED OFF" "SDL_STATIC ON" "SDL2_DISABLE_UNINSTALL ON"
 )
 
@@ -50,7 +50,7 @@ add_executable(Scriptr
     "source/imgui/imgui_demo.cpp"
     "source/imgui/imgui_draw.cpp"
     "source/imgui/imgui_impl_opengl3.cpp"
-    "source/imgui/imgui_impl_sdl2.cpp"
+    "source/imgui/imgui_impl_sdl3.cpp"
     "source/imgui/imgui_tables.cpp"
     "source/imgui/imgui_widgets.cpp"
     "source/imgui/imgui.cpp"
@@ -65,8 +65,11 @@ add_executable(Scriptr
     "source/node.cpp"
     "source/main.cpp")
 
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+
 target_compile_features(Scriptr PUBLIC cxx_std_17)
-target_link_libraries(Scriptr PUBLIC SDL2::SDL2 freetype Poco::Foundation nlohmann_json plutosvg)
+target_link_libraries(Scriptr PUBLIC SDL3::SDL3 freetype Poco::Foundation nlohmann_json plutosvg)
 target_include_directories(Scriptr PRIVATE "source/glad/include" "source/imgui/")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

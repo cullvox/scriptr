@@ -14,11 +14,11 @@
 #define SDL_MAIN_HANDLED
 
 #include "imgui/imgui.h"
-#include "imgui/imgui_impl_sdl2.h"
+#include "imgui/imgui_impl_sdl3.h"
 #include "imgui/imgui_impl_opengl3.h"
 #include "imgui/imgui_stdlib.h"
 #include <stdio.h>
-#include <SDL.h>
+#include <SDL3/SDL.h>
 #if defined(IMGUI_IMPL_OPENGL_ES2)
 #include <SDL_opengles2.h>
 #else
@@ -41,10 +41,9 @@
 // Main code
 int main(int, char**)
 {
-    SDL_SetMainReady();
 
     // Setup SDL
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
+    if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD))
     {
         printf("Error: %s\n", SDL_GetError());
         return -1;
@@ -90,8 +89,8 @@ int main(int, char**)
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-    SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
-    SDL_Window* window = SDL_CreateWindow("Dear ImGui SDL2+OpenGL3 example", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, window_flags);
+    SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY);
+    SDL_Window* window = SDL_CreateWindow("Dear ImGui SDL2+OpenGL3 example", 1280, 720, window_flags);
     if (window == nullptr)
     {
         printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());
@@ -114,20 +113,6 @@ int main(int, char**)
     SDL_GL_MakeCurrent(window, gl_context);
     SDL_GL_SetSwapInterval(1); // Enable vsync
 
-    // Query default monitor resolution
-    float ddpi, hdpi, vdpi;
-    if (SDL_GetDisplayDPI(0, &ddpi, &hdpi, &vdpi) != 0) {
-        fprintf(stderr, "Failed to obtain DPI information for display 0: %s\n", SDL_GetError());
-        exit(1);
-    }
-    float dpi_scaling = 96.f / ddpi;
-    SDL_Rect display_bounds;
-    if (SDL_GetDisplayUsableBounds(0, &display_bounds) != 0) {
-        fprintf(stderr, "Failed to obtain bounds of display 0: %s\n", SDL_GetError());
-        exit(1);
-    }
-    // int win_w = display_bounds.w * 7 / 8, win_h = display_bounds.h * 7 / 8;
-
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -136,12 +121,18 @@ int main(int, char**)
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
+    
+    // Query default monitor resolution
+    float windowScale = SDL_GetWindowDisplayScale(window);
+    ImGui::GetStyle().ScaleAllSizes(windowScale);
+
+
     // Setup Dear ImGui style
     //ImGui::StyleColorsDark();
     ImGui::StyleColorsLight();
     
     // Setup Platform/Renderer backends
-    ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
+    ImGui_ImplSDL3_InitForOpenGL(window, gl_context);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     ImNodes::CreateContext();
@@ -163,29 +154,29 @@ int main(int, char**)
     fontCfg.OversampleH = 2;
     fontCfg.OversampleV = 2;
     fontCfg.RasterizerMultiply = 1.5f;
+    fontCfg.RasterizerDensity = windowScale;
 
     ImFontConfig emojiCfg;
-    fontCfg.OversampleH = 2;
-    fontCfg.OversampleV = 2;
-    fontCfg.RasterizerMultiply = 1.5f;
+    emojiCfg.OversampleH = 2;
+    emojiCfg.OversampleV = 2;
+    emojiCfg.RasterizerMultiply = 1.5f;
+    emojiCfg.RasterizerDensity = windowScale;
     emojiCfg.MergeMode = true;
     emojiCfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
 
-    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Regular.ttf", dpi_scaling * 18.0f, &fontCfg, io.Fonts->GetGlyphRangesDefault());
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", dpi_scaling * 18.0f, &emojiCfg, ranges);
+    ImFont* font = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Regular.ttf", windowScale * 18.0f, &fontCfg, io.Fonts->GetGlyphRangesDefault());
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", windowScale * 18.0f, &emojiCfg, ranges);
 
-    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Bold.ttf", dpi_scaling * 18.0f, &fontCfg, ranges);
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", dpi_scaling * 18.0f, &emojiCfg, ranges);
+    ImFont* fontBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Bold.ttf", windowScale * 18.0f, &fontCfg, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", windowScale * 18.0f, &emojiCfg, ranges);
 
-    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Italic.ttf", dpi_scaling * 18.0f, &fontCfg, ranges);
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", dpi_scaling * 18.0f, &emojiCfg, ranges);
+    ImFont* fontItalic = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-Italic.ttf", windowScale * 18.0f, &fontCfg, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", windowScale * 18.0f, &emojiCfg, ranges);
 
-    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-BoldItalic.ttf", dpi_scaling * 18.0f, &fontCfg, ranges);
-    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", dpi_scaling * 18.0f, &emojiCfg, ranges);
+    ImFont* fontItalicBold = io.Fonts->AddFontFromFileTTF("resource/CourierPrime-BoldItalic.ttf", windowScale * 18.0f, &fontCfg, ranges);
+    io.Fonts->AddFontFromFileTTF("resource/Twemoji.Mozilla.ttf", windowScale * 18.0f, &emojiCfg, ranges);
 
     IM_ASSERT(font != nullptr && fontBold != nullptr && fontItalic != nullptr && fontItalicBold != nullptr);
-
-    
 
     // Our state
     bool show_demo_window = true;
@@ -197,7 +188,7 @@ int main(int, char**)
 
     example::Graph<Node> graph;
 
-    auto json = nlohmann::json::parse(u8R"(
+    auto json = nlohmann::json::parse(R"(
         {
             "text": "Some Text Here! 😀 🦊 ",
             "bold": true,
@@ -207,7 +198,7 @@ int main(int, char**)
                 {
                     "text": "Some more GIDDY gjigiy child 🦊 text!",
                     "bold": true,
-                    "size": 75.0,
+                    "size": 45.0,
                     "italic": true,
                     "underline": true
                 },
@@ -240,7 +231,9 @@ int main(int, char**)
     RichTextDocument doc{json};
     RichTextEditor editor{font, fontBold, fontItalic, fontItalicBold};
     editor.SetDocument(doc);
-    editor.SetDPIScaling(dpi_scaling);
+    editor.SetDPIScaling(windowScale);
+
+    ImNodes::GetStyle().GridSpacing *= windowScale;
 
     // Main loop
     bool done = false;
@@ -261,10 +254,10 @@ int main(int, char**)
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
-            ImGui_ImplSDL2_ProcessEvent(&event);
-            if (event.type == SDL_QUIT)
+            ImGui_ImplSDL3_ProcessEvent(&event);
+            if (event.type == SDL_EVENT_QUIT)
                 done = true;
-            if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_CLOSE && event.window.windowID == SDL_GetWindowID(window))
+            if (event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED && event.window.windowID == SDL_GetWindowID(window))
                 done = true;
         }
         if (SDL_GetWindowFlags(window) & SDL_WINDOW_MINIMIZED)
@@ -275,7 +268,7 @@ int main(int, char**)
 
         // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplSDL2_NewFrame();
+        ImGui_ImplSDL3_NewFrame();
         ImGui::NewFrame();
 
         // ImGui::PushFont(font);
@@ -388,10 +381,10 @@ int main(int, char**)
     // Cleanup
     ImNodes::DestroyContext();
     ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplSDL2_Shutdown();
+    ImGui_ImplSDL3_Shutdown();
     ImGui::DestroyContext();
 
-    SDL_GL_DeleteContext(gl_context);
+    SDL_GL_DestroyContext(gl_context);
     SDL_DestroyWindow(window);
     SDL_Quit();
 
