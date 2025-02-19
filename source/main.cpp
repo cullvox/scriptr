@@ -8,6 +8,7 @@
 // - Introduction, links and more at the top of imgui.cpp
 
 #include "RichTextDocument.h"
+#include "imnodes_internal.h"
 #include "misc/freetype/imgui_freetype.h"
 #include <cstddef>
 #include <nlohmann/json.hpp>
@@ -153,13 +154,13 @@ int main(int, char**)
     ImFontConfig fontCfg;
     fontCfg.OversampleH = 2;
     fontCfg.OversampleV = 2;
-    fontCfg.RasterizerMultiply = 1.5f;
+    //fontCfg.RasterizerMultiply = 1.5f;
     fontCfg.RasterizerDensity = windowScale;
 
     ImFontConfig emojiCfg;
     emojiCfg.OversampleH = 2;
     emojiCfg.OversampleV = 2;
-    emojiCfg.RasterizerMultiply = 1.5f;
+    //emojiCfg.RasterizerMultiply = 1.5f;
     emojiCfg.RasterizerDensity = windowScale;
     emojiCfg.MergeMode = true;
     emojiCfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags_LoadColor;
@@ -341,7 +342,7 @@ int main(int, char**)
         ImNodes::Link(8, 1, 2);
 
         ImNodes::MiniMap(0.2f, ImNodesMiniMapLocation_BottomRight);
-        
+  
         ImNodes::EndNodeEditor();
         ImGui::End();
 

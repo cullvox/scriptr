@@ -168,7 +168,7 @@ void RichTextEditor::Render()
             auto textLocation = ImVec2(textRect.Min.x, textRect.Max.y - (block.fontSize * mDpiScaling) + fontSizeDifference - baselineDifference); //  - fontSizeDifference - baselineDifference
 
             drawList->AddRectFilled(textRect.Min, textRect.Max, block.backgroundColor);
-            drawList->AddText(font, block.fontSize * mDpiScaling, textLocation, block.foregroundColor, block.text.data());
+            drawList->AddText(font, block.fontSize * mDpiScaling, textLocation, block.foregroundColor, block.text.data(), nullptr, 120.0f, nullptr);
 
             if (block.propertyFlags & RichTextPropertyFlags_Underline)
             {
