@@ -189,43 +189,25 @@ int main(int, char**)
 
     example::Graph<Node> graph;
 
+
+
     auto json = nlohmann::json::parse(R"(
         {
+
+            
             "text": "Some Text Here! 😀 🦊 ",
             "bold": true,
             "underline": true,
             "link": "https://github.com/cullvox",
             "children": [
                 {
-                    "text": "Some more GIDDY gjigiy child 🦊 text!",
-                    "bold": true,
-                    "size": 45.0,
-                    "italic": true,
-                    "underline": true
-                },
-                {
-                    "text": "\nshould be bold! 🦊",
-                    "size": 23.0,
-                    "underline": true,
-                    "color": "#Ab4C3245"
-                },
-                {
                     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla nunc, pellentesque sodales odio et, sodales placerat diam. Pellentesque ante tortor, tristique a scelerisque eu, lacinia at justo. Cras gravida, nulla ac feugiat elementum, dolor orci malesuada est, eget molestie urna eros at justo. Nam quis neque vitae velit consectetur imperdiet. Quisque ligula leo, auctor eget cursus ac, consequat in justo. Praesent feugiat euismod mauris in mattis. Phasellus pellentesque quis eros vel interdum. Donec facilisis enim orci, sed ullamcorper mi dapibus vel. Aliquam dignissim eleifend nulla ac ullamcorper. Nullam ultricies tortor nec semper pretium. Nam venenatis tortor non magna auctor fermentum. Pellentesque non velit faucibus, mattis felis quis, malesuada augue. Nam a condimentum orci. ",
                     "size": 18.0,
-                    "bold": false
-                },
-                {
-                    "text": "\nSOME MORE TEXT! 🦊",
                     "bold": false,
-                    "size": 23.0,
-                    "highlight": "#Ab70ded7"
-                },
-                {
-                    "text": "\nSOME MORE GIDDY gjigiy TEXT! 🦊",
-                    "bold": false,
-                    "underline": false
+                    "underline": true
                 }
             ]
+        
         }
         )");
 
@@ -361,7 +343,7 @@ int main(int, char**)
 
         ImGui::End();
 
-        ImGui::Begin("Script");
+        ImGui::Begin("Script", nullptr, ImGuiWindowFlags_NoScrollbar);
 
         editor.Render();
 
