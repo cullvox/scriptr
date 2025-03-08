@@ -5,7 +5,7 @@
 #include <string_view>
 #include <vector>
 
-#include <Poco/UUID.h>
+//#include <Poco/UUID.h>
 
 enum class NodeAttachmentType {
     Flow
@@ -24,8 +24,8 @@ public:
     void RemoveAttachemnt(int attachmentID);
     void Link(int localAttachment, int toAttachment);
     void SetName(std::string_view name);
-    void SetUUID(Poco::UUID uuid);
-    Poco::UUID GetUUID();
+    //void SetUUID(Poco::UUID uuid);
+    // Poco::UUID GetUUID();
     void Draw();
 
 private:

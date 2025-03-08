@@ -1,0 +1,11 @@
+add_requires("libsdl3", "nlohmann_json", "freetype", "plutosvg")
+
+target("scriptr")
+    set_kind("binary")
+    set_languages("cxx17")
+    add_files("source/*.cpp")
+    add_files("source/imgui/*.cpp")
+    add_files("source/glad/src/gl.c")
+    add_includedirs("source/glad/include")
+    add_includedirs("source/imgui")
+    add_packages("libsdl3", "nlohmann_json", "freetype", "plutosvg")

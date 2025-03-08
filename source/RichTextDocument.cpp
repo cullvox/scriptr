@@ -89,7 +89,6 @@ std::optional<uint32_t> RichTextDocument::ParseHexColorCode(const std::string& c
     else return std::nullopt;
 }
 
-
 void RichTextDocument::ParseTextBlock(std::list<RichTextBlock>& blocks, int currentLine, nlohmann::json formatObject, RichTextBlock* parent)
 {
     RichTextBlock block;

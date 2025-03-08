@@ -109,7 +109,7 @@ public:
 	bool IsReadOnly() const { return mReadOnly; }
 	bool IsTextChanged() const { return mTextChanged; }
 	bool IsCursorPositionChanged() const { return mCursorPositionChanged; }
-	void SetLineNumbersEnabled(bool )
+//	void SetLineNumbersEnabled(bool )
 
 	void SetFonts(ImFont* normalFont=NULL, ImFont* boldFont=NULL, ImFont* italicFont=NULL, ImFont* boldItalicFont=NULL);
 	void SetBoldSelection(bool enabled);

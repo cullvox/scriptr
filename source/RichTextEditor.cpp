@@ -117,6 +117,7 @@ void RichTextEditor::Render()
     auto contentRegion = ImGui::GetContentRegionAvail();
     auto backgroundRect = ImRect(drawCursor.x, drawCursor.y, drawCursor.x + contentRegion.x, drawCursor.y + contentRegion.y);
     auto wrapWidth = contentRegion.x;
+    auto lineStartY = drawCursorStart.y;
 
     drawList->AddRectFilled(backgroundRect.Min, backgroundRect.Max, 0xFFe0e0e0);
     drawList->PushClipRect(backgroundRect.Min, backgroundRect.Max, false);
@@ -139,7 +140,6 @@ void RichTextEditor::Render()
         const char* textStart = block.text.data();
         const char* textEnd = textStart + strlen(textStart);
 
-
         auto maxFontSize = 0.0f;
         auto maxBaseline = 0.0f;
         auto getLineData = [&](){
@@ -150,7 +150,7 @@ void RichTextEditor::Render()
             {
                 auto endLocation = block.text.find_first_of('\n', textStart - textStartFirst);
         
-                maxFontSize = std::max(maxFontSize, block.fontSize);
+                maxFontSize = std::max(maxFontSize, (block.fontSize * mDpiScaling));
                 ImFont* font = GetBlockFont(block.propertyFlags);
                 auto mappedDescent = ImLinearRemapClamp(0, font->FontSize, 0, block.fontSize * mDpiScaling, std::abs(font->Descent));
                 maxBaseline = std::max(maxBaseline, std::abs(mappedDescent));
@@ -177,26 +177,29 @@ void RichTextEditor::Render()
             {
                 // Start a new line.
                 drawCursor.x = drawCursorStart.x;
-                drawCursor.y += maxFontSize;
-
+                lineStartY = drawCursor.y += maxFontSize;
+                continue;
                 // widthRemaining = ImGui::CalcWrapWidthForPos(drawCursor, 0.0f);
-                drawEnd = font->CalcWordWrapPositionA(1.0f, textStart, textEnd, wrapWidth, wrapWidth - widthRemaining);
+                // drawEnd = font->CalcWordWrapPositionA(1.0f, textStart, textEnd, wrapWidth, wrapWidth - widthRemaining);
             }
 
             // Calculate the text mathematics for this block.
-            auto fontSizeDifference = maxFontSize - block.fontSize * mDpiScaling;
+            auto fontSizeDifference = maxFontSize - (block.fontSize * mDpiScaling);
             auto textSize = font->CalcTextSizeA(block.fontSize * mDpiScaling, FLT_MAX, -1.0f, textStart, drawEnd);
-            auto textRect = ImRect(drawCursor.x, drawCursor.y, drawCursor.x + textSize.x, drawCursor.y + textSize.y);
 
-            // Consider the difference in baseline of different font sizes.
+            
             auto baselineHeight =  ImLinearRemapClamp(0, font->FontSize, 0, block.fontSize * mDpiScaling, std::abs(font->Descent)); 
             auto baselineDifference = maxBaseline - baselineHeight;
+            drawCursor = ImVec2(drawCursor.x, lineStartY + fontSizeDifference - baselineDifference); //  - fontSizeDifference - baselineDifference
+            auto textRect = ImRect(drawCursor.x, drawCursor.y, drawCursor.x + textSize.x, drawCursor.y + textSize.y);
 
-            auto textLocation = ImVec2(textRect.Min.x, textRect.Max.y - (block.fontSize * mDpiScaling) + fontSizeDifference - baselineDifference); //  - fontSizeDifference - baselineDifference
+            drawList->AddRect(textRect.Min, textRect.Max, IM_COL32(0, 255, 0, 255));
 
-            drawList->AddText(font, block.fontSize * mDpiScaling, textLocation, block.foregroundColor, textStart, textStart==drawEnd ? nullptr : drawEnd, 0.0f, nullptr);
+            // Consider the difference in baseline of different font sizes.
+
+            drawList->AddText(font, block.fontSize * mDpiScaling, drawCursor, block.foregroundColor, textStart, textStart==drawEnd ? nullptr : drawEnd, 0.0f, nullptr);
             
-            drawCursor = ImVec2{drawCursor.x + textSize.x, drawCursor.y + maxFontSize};
+            drawCursor = ImVec2{drawCursor.x + textSize.x, drawCursor.y};
             
             drawList->AddRectFilled(textRect.Min, textRect.Max, block.backgroundColor);
 
@@ -210,11 +213,9 @@ void RichTextEditor::Render()
                 // Font files often *do* define an underline position and thickness in their files but it would be hard to obtain here.
 
                 auto thickness = std::round((maxFontSize / 24.0f) * 0.5f) * 2 + 1;
-                auto underlineStart = ImVec2(textRect.Min.x, std::round(textLocation.y + block.fontSize * mDpiScaling - baselineHeight + thickness) + 1);
-                auto underlineEnd = ImVec2(textRect.Max.x, std::round(textLocation.y + block.fontSize * mDpiScaling - baselineHeight + thickness) + 1);
-                drawList->AddLine(underlineStart, underlineEnd, block.foregroundColor, thickness);
-
-                
+                // auto underlineStart = ImVec2(textRect.Min.x, std::round(textRect.Min.y + block.fontSize * mDpiScaling - baselineHeight + thickness) + 1);
+                // auto underlineEnd = ImVec2(textRect.Max.x, std::round(textRect.Min.y + block.fontSize * mDpiScaling - baselineHeight + thickness) + 1);
+                // drawList->AddLine(underlineStart, underlineEnd, block.foregroundColor, thickness);
 
                 //drawList->AddLine(lineStart, lineEnd, block.foregroundColor);
 
@@ -245,11 +246,13 @@ void RichTextEditor::Render()
 
                     drawCursor.x = drawCursorStart.x;
                     drawCursor.y += maxFontSize;
-                
-                    break; 
+                    break;
                 }
                 else { break; }
             }
+
+            drawCursor.x = drawCursorStart.x;
+            lineStartY += maxFontSize;
         } while (true);
     }
 
