@@ -62,12 +62,10 @@ void RichTextEditor::HandleKeyboardInput() {
 		io.WantCaptureKeyboard = true;
 		io.WantTextInput = true;
 
-
 		if (!alt && ImGui::IsKeyPressed(ImGuiKey_LeftArrow))
 			SetCursorLocation(mCursorLine, mCursorColumn - 1);
 		if (!alt && ImGui::IsKeyPressed(ImGuiKey_RightArrow))
             SetCursorLocation(mCursorLine, mCursorColumn + 1);
-			
 
 		//if (!IsReadOnly() && !io.InputQueueCharacters.empty())
 		//{
@@ -107,7 +105,6 @@ void RichTextEditor::SetDPIScaling(float dpiScaling)
 void RichTextEditor::Render() 
 {
     HandleKeyboardInput();
-    
 
     auto drawList = ImGui::GetWindowDrawList();
 
@@ -176,11 +173,14 @@ void RichTextEditor::Render()
             if (textStart == drawEnd)
             {
                 // Start a new line.
+                if (widthRemaining == drawCursorStart.x - drawCursor.x)
+                    break;
+
                 drawCursor.x = drawCursorStart.x;
                 lineStartY = drawCursor.y += maxFontSize;
-                continue;
-                // widthRemaining = ImGui::CalcWrapWidthForPos(drawCursor, 0.0f);
-                // drawEnd = font->CalcWordWrapPositionA(1.0f, textStart, textEnd, wrapWidth, wrapWidth - widthRemaining);
+
+                widthRemaining = ImGui::CalcWrapWidthForPos(drawCursor, 0.0f);
+                drawEnd = font->CalcWordWrapPositionA(1.0f, textStart, textEnd, wrapWidth, wrapWidth - widthRemaining);
             }
 
             // Calculate the text mathematics for this block.
@@ -203,6 +203,12 @@ void RichTextEditor::Render()
             
             drawList->AddRectFilled(textRect.Min, textRect.Max, block.backgroundColor);
 
+
+            //if (ImGui::ButtonBehavior(textRect, 0x00, nullptr, nullptr, ImGuiButtonFlags_PressedOnClick))
+            {
+
+            }
+
             if (block.propertyFlags & RichTextPropertyFlags_Underline)
             {
                 ImVec2 lineEnd = ImGui::GetItemRectMax();
@@ -213,9 +219,9 @@ void RichTextEditor::Render()
                 // Font files often *do* define an underline position and thickness in their files but it would be hard to obtain here.
 
                 auto thickness = std::round((maxFontSize / 24.0f) * 0.5f) * 2 + 1;
-                // auto underlineStart = ImVec2(textRect.Min.x, std::round(textRect.Min.y + block.fontSize * mDpiScaling - baselineHeight + thickness) + 1);
-                // auto underlineEnd = ImVec2(textRect.Max.x, std::round(textRect.Min.y + block.fontSize * mDpiScaling - baselineHeight + thickness) + 1);
-                // drawList->AddLine(underlineStart, underlineEnd, block.foregroundColor, thickness);
+                auto underlineStart = ImVec2(textRect.Min.x, std::round(textRect.Min.y + block.fontSize * mDpiScaling - baselineHeight + thickness) + 1);
+                auto underlineEnd = ImVec2(textRect.Max.x, std::round(textRect.Min.y + block.fontSize * mDpiScaling - baselineHeight + thickness) + 1);
+                drawList->AddLine(underlineStart, underlineEnd, block.foregroundColor, thickness);
 
                 //drawList->AddLine(lineStart, lineEnd, block.foregroundColor);
 
@@ -245,7 +251,7 @@ void RichTextEditor::Render()
                     //getLineData();
 
                     drawCursor.x = drawCursorStart.x;
-                    drawCursor.y += maxFontSize;
+                    lineStartY += maxFontSize;
                     break;
                 }
                 else { break; }

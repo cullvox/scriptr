@@ -31,8 +31,6 @@
 #include "../libs/emscripten/emscripten_mainloop_stub.h"
 #endif
 
-
-
 #include "imgui/imnodes.h"
 #include "node.hpp"
 #include "graph.h"
@@ -122,11 +120,9 @@ int main(int, char**)
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
-    
     // Query default monitor resolution
     float windowScale = SDL_GetWindowDisplayScale(window);
     ImGui::GetStyle().ScaleAllSizes(windowScale);
-
 
     // Setup Dear ImGui style
     //ImGui::StyleColorsDark();
@@ -189,8 +185,6 @@ int main(int, char**)
 
     example::Graph<Node> graph;
 
-
-
     auto json = nlohmann::json::parse(R"(
         {
 
@@ -201,7 +195,7 @@ int main(int, char**)
             "link": "https://github.com/cullvox",
             "children": [
                 {
-                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla nunc, pellentesque sodales odio et, sodales placerat diam. Pellentesque ante tortor, tristique a scelerisque eu, lacinia at justo. Cras gravida, nulla ac feugiat elementum, dolor orci malesuada est, eget molestie urna eros at justo. Nam quis neque vitae velit consectetur imperdiet. Quisque ligula leo, auctor eget cursus ac, consequat in justo. Praesent feugiat euismod mauris in mattis. Phasellus pellentesque quis eros vel interdum. Donec facilisis enim orci, sed ullamcorper mi dapibus vel. Aliquam dignissim eleifend nulla ac ullamcorper. Nullam ultricies tortor nec semper pretium. Nam venenatis tortor non magna auctor fermentum. Pellentesque non velit faucibus, mattis felis quis, malesuada augue. Nam a condimentum orci. ",
+                    "text": "Lorem ipsum dolor sit amet, \n\nconsectetur adipiscing elit. Fusce nulla \nnunc, pellentesque sodales odio et, sodales placerat diam. Pellentesque ante tortor, tristique a scelerisque eu, lacinia at justo. Cras gravida, nulla ac feugiat elementum, dolor orci malesuada est, eget molestie urna eros at justo. Nam quis neque vitae velit consectetur imperdiet. Quisque ligula leo, auctor eget cursus ac, consequat in justo. Praesent feugiat euismod mauris in mattis. Phasellus pellentesque quis eros vel interdum. Donec facilisis enim orci, sed ullamcorper mi dapibus vel. Aliquam dignissim eleifend nulla ac ullamcorper. Nullam ultricies tortor nec semper pretium. Nam venenatis tortor non magna auctor fermentum. Pellentesque non velit faucibus, mattis felis quis, malesuada augue. Nam a condimentum orci. ",
                     "size": 18.0,
                     "bold": false,
                     "underline": true
@@ -262,7 +256,6 @@ int main(int, char**)
 
         ImGui::DockSpaceOverViewport();
 
-
         // 3. Show another simple window.
         if (show_another_window)
         {
@@ -281,10 +274,9 @@ int main(int, char**)
         ImNodes::BeginNode(0);
 
         ImNodes::BeginNodeTitleBar();
-        ImGui::SetNextItemWidth(node_width + 25.0f);
+        ImGui::SetNextItemWidth(node_width - 25.0f);
         ImGui::InputText("", &node_1_name);
         ImNodes::EndNodeTitleBar();
-
 
         ImNodes::BeginInputAttribute(0);
         ImGui::Text("In");
@@ -306,7 +298,6 @@ int main(int, char**)
         ImGui::SetNextItemWidth(node_width + 25.0f);
         ImGui::InputText("", &node_2_name);
         ImNodes::EndNodeTitleBar();
-
 
         ImNodes::BeginInputAttribute(2);
         ImGui::Text("In");
@@ -331,19 +322,20 @@ int main(int, char**)
         ImGui::Begin("Inspector");
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
         int selected_count = ImNodes::NumSelectedNodes();
-        if (selected_count > 0) {
+        if (selected_count > 0)
+        {
             std::vector<int> selected_nodes((size_t)selected_count);
             ImNodes::GetSelectedNodes(selected_nodes.data());
 
             int node = selected_nodes[0];
 
             auto position = ImNodes::GetNodeGridSpacePos(node);
-            ImGui::Text("Node ID: %d\nNode Position: (%f, %f)", node, position.x, position.y); 
+            ImGui::Text("Node ID: %d\nNode Position: (%f, %f)", node, position.x, position.y);
         }
 
         ImGui::End();
 
-        ImGui::Begin("Script", nullptr, ImGuiWindowFlags_NoScrollbar);
+        ImGui::Begin("Script", nullptr);
 
         editor.Render();
 

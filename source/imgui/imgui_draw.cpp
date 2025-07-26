@@ -4081,7 +4081,8 @@ const char* ImFont::CalcWordWrapPositionA(float scale, const char* text, const c
                 line_width = word_width = blank_width = 0.0f;
                 inside_word = true;
                 s = next_s;
-                continue;
+                break; // This is my addition
+                //continue;
             }
             if (c == '\r')
             {
